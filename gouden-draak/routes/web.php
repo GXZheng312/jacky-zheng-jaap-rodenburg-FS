@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('app.main.home');
+    return view('example-vue');
+    //return view('app.main.home');
 });
