@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'chinese_takeawayregular';
+    src: url('../fonts/chinesetakeaway-webfont.woff2') format('woff2'),
+         url('../fonts/chinesetakeaway-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: darkred;
+    margin: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+// ad banner css elements
+
+.ad-banner {
+    padding:5px;
+    width:100%;
+    height: 50px;
+    background-color:red;
+    display: flex;
+    align-items: center;
+}
+
+.ad-banner .dragon-logo{
+    text-align:center;
+    width:30%;
+    color:yellow;
+    font-size:30px;
+    font-family:'chinese_takeawayregular'
+}
+
+.dragon-logo img{
+    vertical-align: middle;
+    height: 50px;
+}
+
+
+.ad-banner .scroll-banner{
+    width: 40%;
+}
+
+.ad-banner .scroll-banner a{
+    color:yellow;
+    font-weight:bold;
+    text-decoration: none;
+}
+
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.marquee p {
+    margin: revert;
+    text-align: center;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.chinese-border {
+    border: 50px solid transparent;
+    padding: 15px;
+    border-image-slice:384 521 415 473;
+    border-image-width:20px 20px 20px 20px;
+    border-image-outset:0px 0px 0px 0px;
+    border-image-repeat:stretch stretch;
+    border-image-source: url('../../public/pictures/chinese-border.png');
+}
