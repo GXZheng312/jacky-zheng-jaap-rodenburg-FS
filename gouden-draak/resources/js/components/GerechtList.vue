@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <gerecht v-for="gerecht in gerechten" v-bind:key="gerecht.id"></gerecht>
+        <gerecht v-for="gerecht in gerechten" v-bind:key="gerecht.id" :name="gerecht.name" :description="gerecht.description"></gerecht>
     </ul>
 </template>
 

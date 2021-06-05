@@ -1888,6 +1888,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['name', 'description'],
   mounted: function mounted() {
     console.log('Component mounted.');
   },
@@ -37804,7 +37805,10 @@ var render = function() {
   return _c(
     "ul",
     _vm._l(_vm.gerechten, function(gerecht) {
-      return _c("gerecht", { key: gerecht.id })
+      return _c("gerecht", {
+        key: gerecht.id,
+        attrs: { name: gerecht.name, description: gerecht.description }
+      })
     }),
     1
   )

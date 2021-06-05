@@ -7,6 +7,7 @@
 
 <script>
 export default {
+    props: ['name', 'description'],
     mounted() {
         console.log('Component mounted.')
     },
