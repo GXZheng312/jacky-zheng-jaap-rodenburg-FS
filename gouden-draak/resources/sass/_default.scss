@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'chinese_takeawayregular';
     src: url('../fonts/chinesetakeaway-webfont.woff2') format('woff2'),
-         url('../fonts/chinesetakeaway-webfont.woff') format('woff');
+    url('../fonts/chinesetakeaway-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -13,38 +13,47 @@ body {
     margin-right: 50px;
 }
 
+//Kassa elements
+
+.gerecht-list {
+    margin-left: 2vw;
+    margin-top: 2vh;
+    width: 50%;
+}
+
+
 // ad banner css elements
 
 .ad-banner {
-    padding:5px;
-    width:100%;
+    padding: 5px;
+    width: 100%;
     height: 50px;
-    background-color:red;
+    background-color: red;
     display: flex;
     align-items: center;
 }
 
-.ad-banner .dragon-logo{
-    text-align:center;
-    width:30%;
-    color:yellow;
-    font-size:30px;
-    font-family:'chinese_takeawayregular'
+.ad-banner .dragon-logo {
+    text-align: center;
+    width: 30%;
+    color: yellow;
+    font-size: 30px;
+    font-family: 'chinese_takeawayregular'
 }
 
-.dragon-logo img{
+.dragon-logo img {
     vertical-align: middle;
     height: 50px;
 }
 
 
-.ad-banner .scroll-banner{
+.ad-banner .scroll-banner {
     width: 40%;
 }
 
-.ad-banner .scroll-banner a{
-    color:yellow;
-    font-weight:bold;
+.ad-banner .scroll-banner a {
+    color: yellow;
+    font-weight: bold;
     text-decoration: none;
 }
 
@@ -63,16 +72,20 @@ body {
 }
 
 @keyframes marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
 }
 
 .chinese-border {
     border: 50px solid transparent;
     padding: 15px;
-    border-image-slice:384 521 415 473;
-    border-image-width:100px 100px 100px 100px;
-    border-image-outset:0px 0px 0px 0px;
-    border-image-repeat:stretch stretch;
+    border-image-slice: 384 521 415 473;
+    border-image-width: 100px 100px 100px 100px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: stretch stretch;
     border-image-source: url('../../public/pictures/chinese-border.svg');
 }

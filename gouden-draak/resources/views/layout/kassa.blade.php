@@ -1,4 +1,4 @@
-@extends('layout.core.app')
+@extends('layout.kassaLayout.app')
 
 
 @section('body')

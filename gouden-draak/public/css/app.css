@@ -10846,6 +10846,12 @@ body {
   margin-right: 50px;
 }
 
+.gerecht-list {
+  margin-left: 2vw;
+  margin-top: 2vh;
+  width: 50%;
+}
+
 .ad-banner {
   padding: 5px;
   width: 100%;

@@ -1,10 +1,14 @@
 <template>
-    <li>
-        <span>Naam: {{ gerecht.naam }}</span>
-        <span>Beschrijving: {{ gerecht.beschrijving }}</span>
-        <span>Pittigheid: {{ gerecht.pittigheid }}</span>
-        <span>Prijs: {{ gerecht.prijs }}</span>
-    </li>
+    <tr>
+        <td class="w-25">{{ gerecht.menunummer }}{{gerecht.menu_toevoeging}}.</td>
+        <td class="w-25">{{ gerecht.naam }}</td>
+        <td class="w-50">{{ gerecht.beschrijving }}</td>
+        <td class="w-25">{{ gerecht.pittigheid }}</td>
+        <td class="w-25">€{{ gerecht.prijs }}</td>
+        <td class="w-25">
+            <button class="btn btn-primary">Toevoegen</button>
+        </td>
+    </tr>
 </template>
 
 <script>
