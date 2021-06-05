@@ -1,6 +1,5 @@
 <?php
 
 return [
-    'default_title' => 'The Golden Dragon'
-
+  'default_title' => 'The Golden Dragon',
 ];
