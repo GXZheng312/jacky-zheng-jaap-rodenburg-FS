@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <span>Name: {{ name }}</span>
-        <span>{{ description }}</span>
-    </div>
+    <li>
+        <span>Name: {{ gerecht.name }}</span>
+        <span>{{ gerecht.description }}</span>
+    </li>
 </template>
 
 <script>
 export default {
-    props: ['name', 'description'],
+    props: ['gerecht'],
     mounted() {
         console.log('Component mounted.')
     },
