@@ -40,7 +40,8 @@ jobs:
 
       - name: Install Prettier
         working-directory: ./gouden-draak
-        run: npm install --save-dev prettier @prettier/plugin-php
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: npm install
 
       - name: Check formatting
         working-directory: ./gouden-draak
