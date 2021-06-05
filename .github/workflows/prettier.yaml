@@ -20,10 +20,8 @@ jobs:
 
     steps:
       - name: Checkout code
-        working-directory: ./gouden-draak
         uses: actions/checkout@v2
       - name: Set up Node
-        working-directory: ./gouden-draak
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
