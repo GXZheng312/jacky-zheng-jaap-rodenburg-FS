@@ -13,7 +13,6 @@ jobs:
   format:
     runs-on: windows-latest
     name: "Check formatting"
-    working-directory: ./gouden-draak
 
     strategy:
       matrix:
