@@ -27,6 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Get npm cache directory
+        working-directory: ./gouden-draak
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
