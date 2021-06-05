@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGerechtsTable extends Migration
+class CreateGerechtTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,14 @@ class CreateGerechtsTable extends Migration
     {
         Schema::create('gerecht', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('menunummer');
-            $table->tinyText('menu_toevoeging');
+            $table->integer('menunummer');
+            $table->tinyText('menu_toevoeging')->nullable();
+            $table->mediumText('naam');
             $table->decimal('prijs', 10, 2);
             $table->string('soortgerecht', 100);
             $table->longText('beschrijving');
             $table->string('pittigheid', 50);
+            $table->foreign('soortgerecht')->references('soort')->on('soort_gerecht');
         });
     }
 
