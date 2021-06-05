@@ -25,10 +25,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Install Prettier
         working-directory: ./gouden-draak
-        run: npm install
+        run: npm install --save-dev prettier @prettier/plugin-php
 
       - name: Check formatting
         working-directory: ./gouden-draak
