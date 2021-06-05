@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CashRegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,6 @@ Route::get('/', function () {
   //return view('example-vue');
   return view('app.main.home');
 });
+
+//Cash Register
+Route::get('/kassa', [CashRegisterController::class, 'index'])->name('cashregister.index');

@@ -2,7 +2,12 @@
 
 
 @section('body')
-<div id='vue-app'>
-    @yield('content')
-</div>
+    <style>
+        body {
+            background-color: white !important;
+        }
+    </style>
+    <div id='vue-app'>
+        @yield('content')
+    </div>
 @endsection
