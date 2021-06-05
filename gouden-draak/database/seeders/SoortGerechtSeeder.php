@@ -17,5 +17,8 @@ class SoortGerechtSeeder extends Seeder
     Soort_Gerecht::create([
       'soort' => 'Voorgerecht',
     ]);
+    Soort_Gerecht::create([
+      'soort' => 'Hoofdgerecht',
+    ]);
   }
 }
