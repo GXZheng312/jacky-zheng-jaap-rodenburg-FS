@@ -21,6 +21,8 @@ window.Vue = require('vue').default;
 
 Vue.component('example', require('./components/ExampleComponent.vue').default);
 Vue.component('articles', require('./components/Articles.vue').default);
+Vue.component('gerecht', require('./components/Gerecht.vue').default);
+Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <span>{{ name }}</span>
+        <span>Name: {{ name }}</span>
         <span>{{ description }}</span>
     </div>
 </template>
@@ -9,6 +9,12 @@
 export default {
     mounted() {
         console.log('Component mounted.')
+    },
+    data(){
+        return {
+            name: 'Mega Naam',
+            description: 'Beschrijving',
+        }
     }
 }
 </script>
