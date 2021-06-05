@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+window.Axios = require('axios').default;
 
 /**
  * The following block of code may be used to automatically register your

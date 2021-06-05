@@ -1,7 +1,7 @@
 <template>
     <li>
-        <span>Name: {{ gerecht.name }}</span>
-        <span>{{ gerecht.description }}</span>
+        <span>Naam: {{ gerecht.naam }}</span>
+        <span>Beschrijving: {{ gerecht.beschrijving }}</span>
     </li>
 </template>
 
@@ -12,10 +12,7 @@ export default {
         console.log('Component mounted.')
     },
     data(){
-        return {
-            name: 'Mega Naam',
-            description: 'Beschrijving',
-        }
+        return gerecht;
     }
 }
 </script>

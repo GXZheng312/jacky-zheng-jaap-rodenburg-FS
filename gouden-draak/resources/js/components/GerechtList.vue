@@ -6,15 +6,16 @@
 
 <script>
 export default {
-    mounted() {
-        console.log('Component mounted.')
+    async mounted() {
+        console.log('Component mounted.');
+        const response = await axios.get('/api/gerecht');
+        if(response.status === 200) {
+            this.gerechten = response.data;
+        }
     },
     data() {
         return {
-            gerechten: [
-                {id: 1, name: 'Ketjap', description: 'Heerlijke ketjap manis'},
-                {id: 2, name: 'Ketjap 2', description: 'Heerlijke ketjap manis 2'}
-            ]
+            gerechten: []
         }
     }
 }
