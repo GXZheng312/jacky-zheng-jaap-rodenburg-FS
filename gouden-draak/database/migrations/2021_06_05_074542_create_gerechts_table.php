@@ -13,7 +13,7 @@ class CreateGerechtsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gerechts', function (Blueprint $table) {
+        Schema::create('gerecht', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('menunummer');
             $table->tinyText('menu_toevoeging');
@@ -31,6 +31,7 @@ class CreateGerechtsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gerechts');
+        Schema::dropIfExists('gerecht');
     }
+
 }

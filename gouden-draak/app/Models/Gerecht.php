@@ -23,4 +23,9 @@ class Gerecht extends Model
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
 
   protected $fillable = ['menu_toevoeging', 'prijs', 'soortgerecht', 'beschrijving', 'pittigheid'];
+
+  public function soortGerecht()
+  {
+    return $this->belongsTo(Soort_Gerecht::class);
+  }
 }
