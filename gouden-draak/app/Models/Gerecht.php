@@ -31,4 +31,8 @@ class Gerecht extends Model
   {
     return $this->belongsTo(Soort_Gerecht::class);
   }
+  public function pittigheid()
+  {
+    return $this->belongsTo(Pittigheid::class);
+  }
 }

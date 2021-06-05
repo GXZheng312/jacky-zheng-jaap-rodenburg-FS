@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     $this->call(SoortGerechtSeeder::class);
+    $this->call(PittigheidSeeder::class);
     $this->call(GerechtSeeder::class);
   }
 }

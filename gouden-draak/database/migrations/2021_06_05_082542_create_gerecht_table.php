@@ -23,6 +23,7 @@ class CreateGerechtTable extends Migration
             $table->longText('beschrijving');
             $table->string('pittigheid', 50);
             $table->foreign('soortgerecht')->references('soort')->on('soort_gerecht');
+            $table->foreign('pittigheid')->references('pittigheid')->on('pittigheids');
         });
     }
 
