@@ -5002,13 +5002,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gerecht'],
   mounted: function mounted() {
     console.log('Component mounted.');
-  },
-  data: function data() {
-    return gerecht;
   }
 });
 
@@ -42205,7 +42204,11 @@ var render = function() {
   return _c("li", [
     _c("span", [_vm._v("Naam: " + _vm._s(_vm.gerecht.naam))]),
     _vm._v(" "),
-    _c("span", [_vm._v("Beschrijving: " + _vm._s(_vm.gerecht.beschrijving))])
+    _c("span", [_vm._v("Beschrijving: " + _vm._s(_vm.gerecht.beschrijving))]),
+    _vm._v(" "),
+    _c("span", [_vm._v("Pittigheid: " + _vm._s(_vm.gerecht.pittigheid))]),
+    _vm._v(" "),
+    _c("span", [_vm._v("Prijs: " + _vm._s(_vm.gerecht.prijs))])
   ])
 }
 var staticRenderFns = []
