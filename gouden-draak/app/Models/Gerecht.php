@@ -35,4 +35,8 @@ class Gerecht extends Model
   {
     return $this->belongsTo(Pittigheid::class);
   }
+  public function allergenes()
+  {
+    return $this->belongsToMany(Allergene::class);
+  }
 }

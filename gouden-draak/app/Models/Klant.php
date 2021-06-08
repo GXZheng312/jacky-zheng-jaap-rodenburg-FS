@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 /**
- * App\Models\Rol
+ * App\Models\Klant
  *
- * @property string $rol
+ * @property int $id
+ * @property string $voornaam
+ * @property string $achternaam
+ * @property string $telefoonnummer
+ * @property string $email
  * @mixin Eloquent
  * @method static create(array $array)
  */
-class Rol extends Model
+class Klant extends Model
 {
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-  protected $table = 'rol';
+  protected $table = 'klant';
 
-  protected $fillable = ['rol'];
+  protected $fillable = ['voornaam', 'achternaam', 'telefoonnummer', 'email'];
 }
