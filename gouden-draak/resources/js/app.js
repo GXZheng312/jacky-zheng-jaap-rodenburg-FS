@@ -20,10 +20,9 @@ window.Axios = require('axios').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example', require('./components/ExampleComponent.vue').default);
-Vue.component('articles', require('./components/Articles.vue').default);
 Vue.component('gerecht', require('./components/Gerecht.vue').default);
 Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
