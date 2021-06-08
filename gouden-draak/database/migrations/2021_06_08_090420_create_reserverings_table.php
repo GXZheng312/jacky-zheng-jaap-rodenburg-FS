@@ -20,6 +20,7 @@ class CreateReserveringsTable extends Migration
             $table->integer('aantal_personen');
             $table->longText('opmerking')->nullable();
             $table->boolean('bevestiging_verstuurd');
+            $table->foreign('id_klant')->references('id')->on('klant');
         });
     }
 
