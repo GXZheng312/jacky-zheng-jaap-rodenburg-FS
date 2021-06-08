@@ -6,6 +6,11 @@
     font-style: normal;
 }
 
+.basic-font {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+}
+
 body {
     background-color: darkred;
     margin: 15px;
@@ -13,62 +18,44 @@ body {
     margin-right: 50px;
 }
 
-//Kassa elements
-
-.gerecht-list {
-    margin-left: 2vw;
-    margin-top: 2vh;
-    width: 50%;
-}
-
-
-// ad banner css elements
-
 .ad-banner {
     padding: 5px;
     width: 100%;
     height: 50px;
-    background-color: red;
     display: flex;
     align-items: center;
+    .dragon-logo {
+        text-align: center;
+        width: 30%;
+        color: yellow;
+        font-size: 30px;
+        font-family: 'chinese_takeawayregular'
+    }
+    img {
+        vertical-align: middle;
+        height: 50px;
+    }
+    .scroll-banner {
+        width: 40%;
+        a {
+            color: yellow;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
 }
-
-.ad-banner .dragon-logo {
-    text-align: center;
-    width: 30%;
-    color: yellow;
-    font-size: 30px;
-    font-family: 'chinese_takeawayregular'
-}
-
-.dragon-logo img {
-    vertical-align: middle;
-    height: 50px;
-}
-
-
-.ad-banner .scroll-banner {
-    width: 40%;
-}
-
-.ad-banner .scroll-banner a {
-    color: yellow;
-    font-weight: bold;
-    text-decoration: none;
-}
-
+ 
 .marquee {
     white-space: nowrap;
     overflow: hidden;
     box-sizing: border-box;
-}
-
-.marquee p {
-    margin: revert;
-    text-align: center;
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
+    p {
+        margin: revert;
+        text-align: center;
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 15s linear infinite;
+    }
 }
 
 @keyframes marquee {
@@ -80,12 +67,84 @@ body {
     }
 }
 
+
+.nav-container {
+    display: flex;
+
+    img {
+        height: 200px;
+    }
+}
+
+.nav-menu-chinese {
+    flex-grow: 1;
+    nav {
+        justify-content: center;
+        display: flex;
+        ul {
+            border: 1px solid black;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            margin: 1px;
+            a{
+                background: linear-gradient(0deg, rgba(0,4,255,1) 0%, rgba(0,251,255,1) 100%);
+                display: block;
+                color: white !important;
+                padding: 0px 20px;
+                font-size: 20px;
+                text-align: center;
+                text-decoration: none;
+            }
+        }
+        
+    }
+
+    .nav-title {
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        font-weight: bold;
+        color: yellow;
+        span:last-child {
+            font-size: 50px;
+        }
+        span:first-child {
+            font-size: 40px;
+        }
+    }
+
+    .active {
+        background: rgb(0,4,255);
+    }
+}
+
+
 .chinese-border {
-    border: 50px solid transparent;
+    border: 75px solid transparent;
     padding: 15px;
     border-image-slice: 384 521 415 473;
     border-image-width: 100px 100px 100px 100px;
     border-image-outset: 0px 0px 0px 0px;
     border-image-repeat: stretch stretch;
     border-image-source: url('../../public/pictures/chinese-border.svg');
+
+    .content {
+        margin: 3%;
+        border: 1px solid black;
+        background:floralwhite;
+    }
+}
+
+.chinese-container {
+    background-color: red;
+}
+
+.chinese-footer {
+    text-align: center;
+    a { color: yellow; }  
 }
