@@ -10,7 +10,7 @@ class GerechtController extends Controller
 {
   public function index(): array
   {
-    $allItems = Gerecht::all()->jsonSerialize();
+    $allItems = Gerecht::with('allergenes')->with('pittigheid')->with('soort_gerecht')->get()->jsonSerialize();
     return $allItems;
   }
 }

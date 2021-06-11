@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 /**
- * App\Models\gerecht_allergenes
+ * App\Models\Allergene_gerecht
  *
- * @property int $id_gerecht
- * @property int $id_allergenes
+ * @property int $gerecht_id
+ * @property int $allergenes_id
  * @mixin Eloquent
- * @method static create(array $array)
  */
-class gerecht_allergenes extends Model
+class Allergene_gerecht extends Model
 {
+  protected $table = 'allergene_gerecht';
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-  protected $fillable = ['id_gerecht', 'id_allergenes'];
+  protected $fillable = ['gerecht_id', 'allergenes_id'];
 
-  public function allergene()
+  public function allergenes()
   {
-    return $this->belongsTo(Allergene::class);
+    return $this->belongsTo(Allergenes::class);
   }
   public function gerecht()
   {

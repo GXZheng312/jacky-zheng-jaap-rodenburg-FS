@@ -15,14 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_gerecht');
+            $table->unsignedBigInteger('gerecht_id');
             $table->integer('aantal');
             $table->dateTime('datum');
             $table->longText('opmerking')->nullable();
             $table->unsignedBigInteger('bijgerecht')->nullable();
             $table->unsignedBigInteger('aanbieding')->nullable();
             $table->dateTime('afaahaaltijdstip');
-            $table->foreign('id_gerecht')->references('id')->on('gerecht');
+            $table->foreign('gerecht_id')->references('id')->on('gerecht');
             $table->foreign('bijgerecht')->references('id')->on('gerecht');
             $table->foreign('aanbieding')->references('id')->on('aanbieding');
         });

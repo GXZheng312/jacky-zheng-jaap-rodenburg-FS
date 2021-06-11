@@ -5,7 +5,7 @@ namespace App\Models;
  * App\Models\Order
  *
  * @property int $id
- * @property int $id_gerecht
+ * @property int $gerecht_id
  * @property int $aantal
  * @property string $datum
  * @property string $soortgerecht
@@ -23,7 +23,7 @@ class Order extends Model
 {
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-  protected $fillable = ['íd_gerecht', 'aantal', 'datum', 'soortgerecht', 'opmerking', 'bijgerecht', 'aanbieding', 'afhaaltijdstip'];
+  protected $fillable = ['gerecht_id', 'aantal', 'datum', 'soortgerecht', 'opmerking', 'bijgerecht', 'aanbieding', 'afhaaltijdstip'];
   public function bijgerecht()
   {
     return $this->belongsTo(Gerecht::class);
