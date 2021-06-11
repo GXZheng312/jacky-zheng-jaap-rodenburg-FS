@@ -16,7 +16,7 @@ class CreateAllergenesTable extends Migration
         Schema::create('allergenes', function (Blueprint $table) {
             $table->id();
             $table->string('naam', 45);
-            $table->string('beschrijving', 45);
+            $table->text('beschrijving');
         });
     }
 

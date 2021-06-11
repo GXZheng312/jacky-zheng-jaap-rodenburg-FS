@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
     $this->call(SoortGerechtSeeder::class);
     $this->call(PittigheidSeeder::class);
     $this->call(GerechtSeeder::class);
+    $this->call(AllergeneSeeder::class);
+    $this->call(GerechtAllergeneSeeder::class);
   }
 }

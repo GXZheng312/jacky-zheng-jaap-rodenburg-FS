@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id_gerecht
  * @property int $id_allergenes
  * @mixin Eloquent
- * @method static create(array $array)
  */
 class gerecht_allergenes extends Model
 {
