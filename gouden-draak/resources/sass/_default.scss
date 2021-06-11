@@ -16,6 +16,7 @@ body {
     margin: 15px;
     margin-left: 50px;
     margin-right: 50px;
+    line-height: normal;
 }
 
 .ad-banner {
@@ -81,6 +82,7 @@ body {
     nav {
         justify-content: center;
         display: flex;
+        margin-top: 10px;
         ul {
             border: 1px solid black;
             list-style-type: none;
@@ -123,7 +125,6 @@ body {
     }
 }
 
-
 .chinese-border {
     border: 75px solid transparent;
     padding: 15px;
@@ -131,7 +132,7 @@ body {
     border-image-width: 100px 100px 100px 100px;
     border-image-outset: 0px 0px 0px 0px;
     border-image-repeat: stretch stretch;
-    border-image-source: url('../../public/pictures/chinese-border.svg');
+    border-image-source: url('../../public/images/chinese-border.svg');
 
     .content {
         margin: 3%;

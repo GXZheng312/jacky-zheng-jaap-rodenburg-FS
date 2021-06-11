@@ -1,5 +1,6 @@
 @extends('layout.basic')
 
 @section('content')
-menu
+    <img class="img-fluid" src="{{asset('images/restaurant-menukaart-1-2.jpg')}}">
+    <img class="img-fluid" src="{{asset('images/restaurant-menukaart-1.jpg')}}">
 @endsection

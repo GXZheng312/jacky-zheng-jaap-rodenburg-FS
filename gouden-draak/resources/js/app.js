@@ -23,6 +23,8 @@ window.Axios = require('axios').default;
 Vue.component('gerecht', require('./components/Gerecht.vue').default);
 Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
 
+Vue.component('view-web-menu', require('./view/web-menu.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -7,6 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//scss
+// default layout css
 @import 'default';
+
+// other css
 @import 'cashier';
+@import 'pages/home';
