@@ -1,3 +1,11 @@
+import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,6 +17,8 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 window.Axios = require('axios').default;
 
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -24,7 +34,6 @@ Vue.component('gerecht', require('./components/Gerecht.vue').default);
 Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
 
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
