@@ -1,5 +1,5 @@
 @extends('layout.basic')
 
 @section('content')
-menu
+    <view-web-menu/> 
 @endsection
