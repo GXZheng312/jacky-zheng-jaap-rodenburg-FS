@@ -19,11 +19,11 @@ class CreateGerechtTable extends Migration
             $table->tinyText('menu_toevoeging')->nullable();
             $table->mediumText('naam');
             $table->decimal('prijs', 10, 2);
-            $table->string('soortgerecht', 100);
+            $table->integer('soortgerecht_id');
             $table->longText('beschrijving');
-            $table->string('pittigheid', 50);
-            $table->foreign('soortgerecht')->references('soort')->on('soort_gerecht');
-            $table->foreign('pittigheid')->references('pittigheid')->on('pittigheids');
+            $table->integer('pittigheid_id');
+            $table->foreign('soortgerecht_id')->references('id')->on('soort_gerecht');
+            $table->foreign('pittigheid_id')->references('id')->on('pittigheids');
         });
     }
 

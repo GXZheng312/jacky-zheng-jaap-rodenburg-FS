@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Allergene;
+use App\Models\Allergenes;
 use Illuminate\Database\Seeder;
 
 class AllergeneSeeder extends Seeder
@@ -14,15 +14,15 @@ class AllergeneSeeder extends Seeder
      */
     public function run()
     {
-        Allergene::create([
+        Allergenes::create([
             "naam" => "gluten",
             "beschrijving" => "Gluten is het woord voor eiwitten die voorkomen in sómmige granen: tarwe, rogge, gerst (gort), spelt en khorasan tarwe."
         ]);
-        Allergene::create([
+        Allergenes::create([
             "naam" => "lactose",
             "beschrijving" => "Lactose, ook wel melksuiker genoemd, is een suiker die voorkomt in de melk van alle zoogdieren, koemelk bevat 4 tot 5 procent lactose."
         ]);
-        Allergene::create([
+        Allergenes::create([
             "naam" => "varkensvlees",
             "beschrijving" => "Varkensvlees is één van de meest gegeten vleessoorten in Nederland en Europa. Bekende producten zijn ham, worst, spek en karbonade."
         ]);

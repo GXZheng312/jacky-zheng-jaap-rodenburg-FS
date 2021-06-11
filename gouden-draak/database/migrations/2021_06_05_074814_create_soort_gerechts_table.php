@@ -14,7 +14,8 @@ class CreateSoortGerechtsTable extends Migration
     public function up()
     {
         Schema::create('soort_gerecht', function (Blueprint $table) {
-            $table->string('soort', 100)->primary();
+            $table->id();
+            $table->string('soort', 100);
             $table->tinyText('soort_toevoeging')->nullable();
         });
     }

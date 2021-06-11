@@ -14,11 +14,13 @@ class CreateTafelBestellingsTable extends Migration
     public function up()
     {
         Schema::create('tafel_bestelling', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_tafelbezetting');
-            $table->dateTime('datum')->primary();
+            $table->unsignedBigInteger('tafelbezetting_id');
+            $table->dateTime('datum');
             $table->unsignedBigInteger('gerecht');
-            $table->foreign('id_tafelbezetting')->references('id')->on('tafel_bezetting');
+            $table->foreign('tafelbezetting_id')->references('id')->on('tafel_bezetting');
             $table->foreign('gerecht')->references('id')->on('gerecht');
+            
+            $table->primary(['tafelbezetting_id','datum']);
         });
     }
 

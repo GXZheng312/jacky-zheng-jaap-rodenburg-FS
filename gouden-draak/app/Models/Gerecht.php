@@ -12,11 +12,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $menunummer
  * @property int|null $menu_toevoeging
  * @property float $prijs
- * @property string $soortgerecht
+ * @property int $soortgerecht_id
  * @property string $beschrijving
- * @property string pittigheid
+ * @property int $pittigheid_id
  * @mixin Eloquent
- * @method static create(array $array)
  */
 class Gerecht extends Model
 {
@@ -25,18 +24,19 @@ class Gerecht extends Model
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
   protected $table = 'gerecht';
 
-  protected $fillable = ['menunummer', 'menu_toevoeging', 'prijs', 'soortgerecht', 'beschrijving', 'pittigheid'];
+  protected $fillable = ['menunummer', 'menu_toevoeging', 'prijs', 'soortgerecht_id', 'beschrijving', 'pittigheid_id'];
 
-  public function soortGerecht()
+  public function soort_gerecht()
   {
-    return $this->belongsTo(Soort_Gerecht::class);
+    return $this->belongsTo(Soort_Gerecht::class, 'soortgerecht_id', 'id');
   }
   public function pittigheid()
   {
     return $this->belongsTo(Pittigheid::class);
   }
+
   public function allergenes()
   {
-    return $this->belongsToMany(Allergene::class);
+    return $this->belongsToMany(Allergenes::class, 'allergene_gerecht', 'gerecht_id', 'allergenes_id');
   }
 }

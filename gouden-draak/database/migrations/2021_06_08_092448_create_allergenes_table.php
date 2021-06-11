@@ -18,6 +18,15 @@ class CreateAllergenesTable extends Migration
             $table->string('naam', 45);
             $table->text('beschrijving');
         });
+
+        Schema::create('allergene_gerecht', function (Blueprint $table) {
+            $table->unsignedBigInteger('gerecht_id');
+            $table->unsignedBigInteger('allergenes_id');
+            $table->foreign('allergenes_id')->references('id')->on('allergenes');
+            $table->foreign('gerecht_id')->references('id')->on('gerecht');
+
+            $table->primary(['gerecht_id', 'allergenes_id']);
+        });
     }
 
     /**
@@ -28,5 +37,6 @@ class CreateAllergenesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('allergenes');
+        Schema::dropIfExists('allergene_gerecht');
     }
 }

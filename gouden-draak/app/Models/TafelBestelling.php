@@ -17,9 +17,10 @@ class TafelBestelling extends Model
 {
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
+  public $incrementing = false;
   protected $table = 'tafel_bestelling';
-
-  protected $fillable = ['id_tafelbezetting', 'datum', 'gerecht'];
+  protected $primaryKey = ['tafelbezetting_id', 'datum'];
+  protected $fillable = ['tafelbezetting_id', 'datum', 'gerecht'];
 
   public function tafelbezetting()
   {

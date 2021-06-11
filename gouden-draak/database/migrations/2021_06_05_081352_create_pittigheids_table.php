@@ -14,7 +14,8 @@ class CreatePittigheidsTable extends Migration
     public function up()
     {
         Schema::create('pittigheids', function (Blueprint $table) {
-            $table->string('pittigheid', 50)->primary();
+            $table->id();
+            $table->string('pittigheid', 50);
         });
     }
 
