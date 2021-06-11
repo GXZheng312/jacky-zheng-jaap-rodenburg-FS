@@ -2,9 +2,8 @@ import Vue from 'vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -30,9 +29,14 @@ Vue.use(IconsPlugin)
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+//components
 Vue.component('gerecht', require('./components/Gerecht.vue').default);
 Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
+Vue.component('menu-gerecht', require('./components/MenuGerecht.vue').default);
+Vue.component('menu-gerecht-overzicht', require('./components/MenuGerechtOverzicht.vue').default);
 
+
+//view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
 
 /**
