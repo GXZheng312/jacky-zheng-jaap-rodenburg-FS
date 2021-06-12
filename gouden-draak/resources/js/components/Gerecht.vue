@@ -1,11 +1,17 @@
 <template>
     <tr>
-        <td class="w-25">{{ gerecht.menunummer }}{{gerecht.menu_toevoeging}}.</td>
-        <td class="w-25">{{ gerecht.naam }}</td>
-        <td class="w-50">{{ gerecht.beschrijving }}</td>
-        <td class="w-25">{{ gerecht.pittigheid }}</td>
-        <td class="w-25">€{{ gerecht.prijs }}</td>
-        <td class="w-25">
+        <td>{{ gerecht.menunummer }}{{gerecht.menu_toevoeging}}.</td>
+        <td>{{ gerecht.naam }}</td>
+        <td>{{ gerecht.beschrijving }}</td>
+        <td>{{ gerecht.pittigheid.pittigheid }}</td>
+        <td> &#8364;{{ gerecht.prijs }}</td>
+        <td>
+            <span v-for="(allergene, key) in gerecht.allergenes" :key="allergene.id">
+                <span v-if="key !== 0">-</span>
+                {{ allergene.naam }} 
+            </span>
+        </td>
+        <td>
             <button class="btn btn-primary">Toevoegen</button>
         </td>
     </tr>
