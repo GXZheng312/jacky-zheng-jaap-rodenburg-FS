@@ -15,7 +15,6 @@ class GerechtController extends Controller
     return $allItems;
   }
 
-
   public function soortGerechten(): array
   {
     $allItems = Soort_Gerecht::with('gerechten', 'gerechten.pittigheid', 'gerechten.allergenes')->get()->jsonSerialize();

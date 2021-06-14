@@ -20,7 +20,7 @@ class CreateGerechtTable extends Migration
             $table->mediumText('naam');
             $table->decimal('prijs', 10, 2);
             $table->integer('soortgerecht_id');
-            $table->longText('beschrijving');
+            $table->longText('beschrijving')->nullable();
             $table->integer('pittigheid_id');
             $table->foreign('soortgerecht_id')->references('id')->on('soort_gerecht');
             $table->foreign('pittigheid_id')->references('id')->on('pittigheids');

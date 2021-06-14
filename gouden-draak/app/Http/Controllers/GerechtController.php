@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GerechtRequest;
+use App\Models\Allergenes;
 use App\Models\Gerecht;
+use App\Models\Pittigheid;
+use App\Models\Soort_Gerecht;
 use Illuminate\Http\Request;
 
 class GerechtController extends Controller
@@ -14,9 +18,9 @@ class GerechtController extends Controller
         */
     public function index()
     {
-        $gerechten = Gerecht::all();
-
-        return view('app.cashier.gerecht.index', ['gerechten' => $gerechten]);
+        return view('app.cashier.gerecht.index', [
+            'gerechten' => Gerecht::all(),
+        ]);
     }
 
     /**
@@ -26,7 +30,11 @@ class GerechtController extends Controller
         */
     public function create()
     {
-        return view('app.cashier.gerecht.createOrEdit');
+        return view('app.cashier.gerecht.createOrEdit', [
+            'pittigheids' => Pittigheid::all()->pluck('pittigheid', 'id'),
+            'soortgerechten' => Soort_Gerecht::all()->pluck('soort', 'id'),
+            'allergenes' => Allergenes::all(),
+        ]);
     }
 
     /**
@@ -34,9 +42,11 @@ class GerechtController extends Controller
         *
         * @return Response
         */
-    public function store()
+    public function store(GerechtRequest $request)
     {
-        return view('app.cashier.gerecht.index', ['gerechten' => Gerecht::all()]);
+        $this->updateOrSaveGerecht(new Gerecht(), $request);
+
+        return redirect()->route('cashregister.gerecht.index');
     }
 
     /**
@@ -47,10 +57,9 @@ class GerechtController extends Controller
         */
     public function show($id)
     {
-        $gerecht = Gerecht::findOrFail($id);
-
-        
-        return view('app.cashier.gerecht.show', ['gerecht' => $gerecht]);
+        return view('app.cashier.gerecht.show', [
+            'gerecht' => Gerecht::findOrFail($id)
+        ]);
     }
 
     /**
@@ -61,9 +70,12 @@ class GerechtController extends Controller
         */
     public function edit($id)
     {
-        $gerecht = Gerecht::findOrFail($id);
-
-        return view('app.cashier.gerecht.createOrEdit', ['gerecht' => $gerecht]);
+        return view('app.cashier.gerecht.createOrEdit', [
+            'gerecht' => Gerecht::findOrFail($id),
+            'pittigheids' => Pittigheid::all()->pluck('pittigheid', 'id'),
+            'soortgerechten' => Soort_Gerecht::all()->pluck('soort', 'id'),
+            'allergenes' => Allergenes::all(),
+        ]);
     }
 
     /** 
@@ -72,11 +84,11 @@ class GerechtController extends Controller
         * @param  int  $id
         * @return Response
         */
-    public function update($id)
+    public function update($id, GerechtRequest $request)
     {
-        $gerecht = Gerecht::findOrFail($id);
+        $this->updateOrSaveGerecht(Gerecht::findOrFail($id), $request, true);
 
-        return view('app.cashier.gerecht.createOrEdit', ['gerecht' => $gerecht]);
+        return back();
     }
     
     /**
@@ -87,8 +99,26 @@ class GerechtController extends Controller
         */
     public function destroy($id)
     {
-        $gerechten = Gerecht::all();
+        Gerecht::findOrFail($id)->delete();
 
-        return view('app.cashier.gerecht.index', ['gerechten' => $gerechten]);
+        return redirect()->route('cashregister.gerecht.index');
+    }
+
+    private function updateOrSaveGerecht(Gerecht $gerecht, GerechtRequest $request, $update = false)
+    {
+        $request->validated();
+
+        $gerecht->menunummer = $request->input('menunummer') ? $request->input('menunummer') : Gerecht::max('menunummer') + 1;
+        if($request->input('menu_toevoeging')) $gerecht->menu_toevoeging = $request->input('menu_toevoeging');
+        $gerecht->naam = $request->input('naam');
+        $gerecht->prijs = $request->input('prijs');
+        $gerecht->soortgerecht_id = $request->input('soortgerecht_id');
+        if($request->input('beschrijving')) $gerecht->beschrijving = $request->input('beschrijving');
+        $gerecht->pittigheid_id = $request->input('pittigheid_id');
+       
+        if(!$update) $gerecht->save();
+        if($update) $gerecht->update();
+
+        $gerecht->allergenes()->sync($request->input('Allergenes'));
     }
 }

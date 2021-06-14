@@ -1,10 +1,12 @@
 @extends('layout.kassa')
 @section('content')
 <div class="container">
-    <div>
-        <a href="{{route('cashregister.gerecht.create')}}" class="btn btn-primary">Nieuw gerecht aanmaken</a>
+    <h1 class="mt-3"> Gerechten overzicht </h1>
+
+    <div class="mt-3">
+        <a href="{{route('cashregister.gerecht.create')}}" class="btn btn-outline-primary">Nieuw gerecht aanmaken</a>
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped mt-3">
         <thead>
             <th>#</th>
             <th>Menunummer</th>
@@ -28,8 +30,13 @@
                     <td>{{$gerecht->pittigheid->pittigheid}}</td>
                     <td>{{$gerecht->beschrijving}}</td>
                     <td>
+                        <div class="btn-group-vertical">
                         <a href="{{route('cashregister.gerecht.edit', ['gerecht' => $gerecht->id])}}" class="btn btn-warning">Aanpassen</a>
-                        <a href="#" class="btn btn-danger">Verwijderen</a>
+
+                        {{ Form::open(['method'=>'DELETE', 'url' =>route('cashregister.gerecht.destroy', $gerecht->id)]) }}
+                        {{ Form::button('verwijderen', ['type' => 'submit','class' => 'btn btn-danger','title' => 'Delete Post','onclick'=>'return confirm("Wilt u het zeker verwijderen?")']) }}
+                        {{ Form::close() }}
+                        </div>
                     </td>
                 </tr>
             @endforeach
