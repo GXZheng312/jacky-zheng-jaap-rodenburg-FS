@@ -16,14 +16,11 @@ export default {
     props: ['gerecht'],
     mounted() {
         console.log('Component mounted.')
-        app.$on('event', obj => {
-           console.log(obj);
-        });
     },
     methods: {
         addGerecht: function () {
-            console.log(this.gerecht)
-            app.$emit('event', 'test');
+            console.log('Addgerecht', this.gerecht)
+            app.$emit('addGerecht', this.gerecht);
         }
     }
 }

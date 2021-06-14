@@ -32,6 +32,7 @@ Vue.use(IconsPlugin)
 //components
 Vue.component('gerecht', require('./components/Gerecht.vue').default);
 Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
+Vue.component('cart-list', require('./components/CartList').default);
 Vue.component('menu-gerecht', require('./components/MenuGerecht.vue').default);
 Vue.component('menu-gerecht-overzicht', require('./components/MenuGerechtOverzicht.vue').default);
 

@@ -10,7 +10,7 @@
             <div class="col">
                 <div class="gerecht-list">
                     <h1 class="h1">Winkelmandje</h1>
-                    <gerecht-list></gerecht-list>
+                    <cart-list></cart-list>
                 </div>
             </div>
         </div>
