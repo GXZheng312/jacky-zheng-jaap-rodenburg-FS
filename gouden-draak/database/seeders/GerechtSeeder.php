@@ -3,50 +3,53 @@
 namespace Database\Seeders;
 
 use App\Models\Gerecht;
+use App\Models\Soort_Gerecht;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class GerechtSeeder extends Seeder
 {
-  /**
-   * Run the database seeds.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    Gerecht::create([
-      'menunummer' => 1,
-      'naam' => 'Ketjap Manis',
-      'prijs' => 9.95,
-      'soortgerecht_id' => 1,
-      'beschrijving' => 'Lekker zoete soep',
-      'pittigheid_id' => 1,
-    ]);
-    Gerecht::create([
-      'menunummer' => 2,
-      'naam' => 'Tomatensoep',
-      'prijs' => 11.99,
-      'soortgerecht_id' => 1,
-      'beschrijving' => 'Lekker zoete soep gemaakt van verse tomaten',
-      'pittigheid_id' => 1,
-    ]);
-    Gerecht::create([
-      'menunummer' => 3,
-      'naam' => 'Sushi met Hete Peper',
-      'prijs' => 5.5,
-      'soortgerecht_id' => 2,
-      'beschrijving' => 'Pittige sushi met zalm een veel peper',
-      'pittigheid_id' => 2,
-    ]);
-    Gerecht::create([
-      'menunummer' => 3,
-      'menu_toevoeging' => 'A',
-      'naam' => 'Sushi met ketjap manis, Zalm en wortel',
-      'prijs' => 6.75,
-      'soortgerecht_id' => 2,
-      'beschrijving' =>
-        'Lekker zoete sushi, met een vleugje ketjap manis, van het huis. Rauwe zalm en een kleine wortel. Afgemaakt met de heetste peper die er maar is.',
-      'pittigheid_id' => 3,
-    ]);
-  }
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$json = File::get("database/data/gerechten.json");
+		$gerechten = json_decode($json);
+		$addExtra = 0;
+		$previouslyIncremented = false;
+
+		foreach($gerechten as $gerecht){
+			$soortgerecht = Soort_Gerecht::where('soort', $gerecht[5])->first();
+
+			if(!$soortgerecht) {
+				$soortgerecht = Soort_Gerecht::create(['soort' => $gerecht[5]]);
+			}
+
+			if(!$gerecht[1]) {
+				if(!$previouslyIncremented) {
+					$previouslyIncremented = true;
+					$addExtra++;
+				}
+				$gerecht[1] = Gerecht::max('menunummer') + $addExtra;
+			} 
+
+			if($gerecht[1]) {
+				$gerecht[1] += $addExtra;
+				$previouslyIncremented = false;
+			}
+
+			Gerecht::create([
+				'menunummer' => $gerecht[1],
+				'menu_toevoeging' => $gerecht[2],
+				'naam' => $gerecht[3],
+				'prijs' => $gerecht[4],
+				'soortgerecht_id' => $soortgerecht->id,
+				'beschrijving' => $gerecht[6],
+				'pittigheid_id' => 1
+			]);
+		}
+	}
 }
