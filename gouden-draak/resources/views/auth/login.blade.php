@@ -1,4 +1,42 @@
-<x-guest-layout>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    @include('layouts.basic.head')
+</head>
+
+<body>
+    <div class="d-flex justify-content-center align align-items-center vh-100 vw-100">
+        <div class="card text-center w-25">
+            <div class="card-header">
+                <h3 class="m-3"> Inloggen </h3>
+            </div>
+            <div class="card-body">
+                {{ Form::open(['url' => route('login')]) }}
+                    <div class="form-floating mb-3">
+                        {{ Form::email('email', old('soortgerecht_id'), ['class' => 'form-control', 'placeholder' => 'name@example.com']) }}
+                        {{ Form::label('email', 'Email') }}
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+                    {{ Form::label('password', 'Password') }}
+                  </div>
+                  
+                {{ Form::submit('Inloggen', ['type' => 'submit','class' => 'btn btn-outline-primary']) }}
+                {{ Form::close() }}
+            </div>
+            <div class="card-footer text-muted">
+                Gemaakt door Jacky Zheng :)
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -53,4 +91,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}

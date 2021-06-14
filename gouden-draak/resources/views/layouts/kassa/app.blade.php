@@ -3,10 +3,13 @@
 <head>
     @include('layouts.basic.head')
 </head>
-<body style="margin: 0 !important; padding: 0; !important;">
-@include('layouts.kassa.navbar')
-@yield('body')
+<body class="cashier-web">
 
-@include('layouts.basic.tail')
+    @include('layouts.kassa.navbar')
+
+    @yield('body')
+
+    @include('layouts.basic.tail')
+
 </body>
 </html>
