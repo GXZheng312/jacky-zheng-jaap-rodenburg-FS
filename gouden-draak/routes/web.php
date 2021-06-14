@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CashRegisterController;
+use App\Http\Controllers\GerechtController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,7 @@ Route::name('main.')->group(function () {
 //Cash Register
 Route::name('cashregister.')->prefix('/kassa')->group(function () {
   Route::get('/', [CashRegisterController::class, 'index'])->name('index');
+
+  Route::resource('gerecht', GerechtController::class); //automatically assign actions to that controller
+
 });

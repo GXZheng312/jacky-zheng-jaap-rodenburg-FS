@@ -1,11 +1,24 @@
 <template>
-    <tr>
-        <td class="w-25">{{ gerecht.menunummer }} {{gerecht.menu_toevoeging}}.</td>
-        <td class="w-25">{{ gerecht.naam }}</td>
-        <td class="w-50">{{ gerecht.beschrijving }}</td>
-        <td class="w-25">{{ gerecht.pittigheid }}</td>
-        <td class="w-25">€{{ gerecht.prijs }}</td>
-    </tr>
+    <div class="card menu-item-card">
+        <div class="card-header">{{gerecht.menunummer}}{{gerecht.menu_toevoeging}}. {{gerecht.naam}}</div>
+        <div class="card-body">    
+            <div class="card-subtitle text-muted">
+                <span v-for="(allergene, key) in gerecht.allergenes" :key="allergene.id">
+                    <span v-if="key !== 0">-</span>
+                    {{ allergene.naam }} 
+                </span>
+            </div>
+            
+            <p><strong>{{gerecht.pittigheid.pittigheid}}</strong></p>
+
+            <div class="card-text">
+                {{gerecht.beschrijving}}
+            </div>
+        </div>
+        <div class="card-footer"> 
+            Prijs: &#8364; {{gerecht.prijs}}
+            </div>
+    </div>
 </template>
 
 <script>

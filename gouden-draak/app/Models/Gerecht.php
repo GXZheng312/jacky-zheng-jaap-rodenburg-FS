@@ -34,7 +34,6 @@ class Gerecht extends Model
   {
     return $this->belongsTo(Pittigheid::class);
   }
-
   public function allergenes()
   {
     return $this->belongsToMany(Allergenes::class, 'allergene_gerecht', 'gerecht_id', 'allergenes_id');

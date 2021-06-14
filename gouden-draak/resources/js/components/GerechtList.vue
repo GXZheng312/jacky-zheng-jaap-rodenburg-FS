@@ -7,7 +7,8 @@
                 <th scope="col">Beschrijving</th>
                 <th scope="col">Pittigheid</th>
                 <th scope="col">Prijs</th>
-                <th scope="col"></th>
+                <th scope="col">Allergenes</th>
+                <th scope="col">Acties</th>
             </tr>
             </thead>
             <tbody>
@@ -21,7 +22,7 @@
 export default {
     async mounted() {
         console.log('Component mounted.');
-        const response = await axios.get('/api/gerecht');
+        const response = await axios.get('/api/gerechten');
         if (response.status === 200) {
             this.gerechten = response.data;
         }

@@ -20,8 +20,8 @@ class Soort_Gerecht extends Model
 
   protected $fillable = ['soort', 'soort_toevoeging'];
 
-  public function gerecht()
+  public function gerechten()
   {
-    $this->belongsToMany(Gerecht::class);
+    return $this->hasMany(Gerecht::class, 'soortgerecht_id');
   }
 }

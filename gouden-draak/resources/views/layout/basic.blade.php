@@ -4,7 +4,6 @@
 	<link href="{{ asset('css/default.css') }}" rel="stylesheet">
 @endsection
 
-
 @section('body')
 <div class="chinese-container basic-font">
 	<div class="ad-banner">
