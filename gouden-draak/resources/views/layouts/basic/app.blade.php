@@ -3,7 +3,7 @@
     <head>
         @include('layouts.basic.head')
     </head>
-    <body>
+    <body class="customer-web">
         @yield('body')
 
         @include('layouts.basic.tail')

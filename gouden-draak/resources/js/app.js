@@ -12,6 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
  */
 
 require('./bootstrap');
+require('alpinejs');
 
 window.Vue = require('vue').default;
 window.Axios = require('axios').default;
