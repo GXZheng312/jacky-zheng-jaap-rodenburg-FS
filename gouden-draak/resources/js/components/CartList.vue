@@ -21,7 +21,7 @@
 export default {
     async mounted() {
         console.log('Component mounted.');
-        app.$on('addGerecht', obj => {
+        this.$root.$on('addGerecht', obj => {
             console.log(obj)
             this.gerechten.push(obj);
         });

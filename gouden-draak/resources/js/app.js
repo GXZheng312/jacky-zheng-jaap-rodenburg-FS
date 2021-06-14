@@ -46,6 +46,6 @@ Vue.component('view-web-menu', require('./view/web-menu.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-window.app = new Vue({
+const app = new Vue({
   el: '#vue-app',
 });
