@@ -1,4 +1,4 @@
-@extends('layout.basic')
+@extends('layouts.basic')
 
 @section('content')
 Door de Corona crisis is De Gouden Draak op het moment slechts beperkt open.

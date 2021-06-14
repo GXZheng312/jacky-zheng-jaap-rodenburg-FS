@@ -1,4 +1,4 @@
-@extends('layout.kassa')
+@extends('layouts.kassa')
 @section('content')
         <div class="row">
             <div class="col">

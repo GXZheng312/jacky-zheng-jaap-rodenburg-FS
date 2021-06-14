@@ -1,4 +1,4 @@
-@extends('layout.kassa')
+@extends('layouts.kassa')
 @section('content')
 <div class="container">
     <h1 class="mt-3"> Gerechten overzicht </h1>

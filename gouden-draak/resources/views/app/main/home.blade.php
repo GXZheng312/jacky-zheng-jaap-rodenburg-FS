@@ -1,4 +1,4 @@
-@extends('layout.basic')
+@extends('layouts.basic')
 
 @section('content')
 <div class="body-home">

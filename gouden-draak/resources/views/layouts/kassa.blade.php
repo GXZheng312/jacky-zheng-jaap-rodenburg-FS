@@ -1,5 +1,4 @@
-@extends('layout.kassaLayout.app')
-
+@extends('layouts.kassa.app')
 
 @section('body')
     <style>

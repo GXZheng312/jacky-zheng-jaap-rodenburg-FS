@@ -1,4 +1,4 @@
-@extends('layout.core.app')
+@extends('layouts.basic.app')
 
 @section('addCss')
 	<link href="{{ asset('css/default.css') }}" rel="stylesheet">
