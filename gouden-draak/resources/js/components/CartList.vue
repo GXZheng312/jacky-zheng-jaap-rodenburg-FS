@@ -18,9 +18,17 @@
             </tbody>
         </table>
         <input type="hidden" name="_token" :value="csrf">
-        <label for="afhaaltime">Afhaal tijd:</label>
-        <input type="datetime-local" id="afhaaltime" name="afhaaltime">
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <div class="row mb-3 mt-3">
+            <div class="col-sm">
+                <label for="afhaaltime" class="form-label">Afhaal tijd:</label>
+                <input type="datetime-local" id="afhaaltime" name="afhaaltime" class="form-control" required>
+            </div>
+            <div class="col-sm">
+                <label for="name" class="form-label">Naam</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary form-control" value="Bestellen">
     </form>
 </template>
 

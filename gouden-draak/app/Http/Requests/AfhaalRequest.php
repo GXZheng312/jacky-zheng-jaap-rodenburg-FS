@@ -28,7 +28,8 @@ class AfhaalRequest extends FormRequest
             'gerecht.*' => 'integer|required',
             'amount' => 'array|required',
             'amount.*' => 'integer|required',
-            'afhaaltime' => 'required|date'
+            'afhaaltime' => 'required|date',
+            'name'=> 'required|string'
         ];
     }
 }

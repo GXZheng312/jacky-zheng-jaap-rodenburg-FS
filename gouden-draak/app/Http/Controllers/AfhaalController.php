@@ -19,16 +19,16 @@ class AfhaalController extends Controller
     {
         $gerechten = $this->groupGerechtAmount($request);
         $orders = [];
-        foreach($gerechten as $gerecht){
+        foreach ($gerechten as $gerecht) {
             $order = Order::create([
                 'gerecht_id' => $gerecht['gerecht'],
-                'aantal' =>  $gerecht['amount'],
+                'aantal' => $gerecht['amount'],
                 'datum' => Carbon::now()->toDateString(),
-                'afhaaltijdstip' =>  $request->get('afhaaltime')
+                'afhaaltijdstip' => $request->get('afhaaltime')
             ]);
             array_push($orders, $order);
         }
-        return QrCode::size(300)->errorCorrection('H')->generate(json_encode($orders));
+        return QrCode::size(300)->errorCorrection('H')->generate(json_encode(['orders' => $orders, 'name' => $request->get('name')]));
     }
 
     function groupGerechtAmount($request)
@@ -37,7 +37,7 @@ class AfhaalController extends Controller
         $amountData = $request->get('amount');
         $result = [];
         for ($i = 0; $i < count($gerechtenData); $i++) {
-            $object = ['gerecht'=> $gerechtenData[$i], 'amount' => $amountData[$i]];
+            $object = ['gerecht' => $gerechtenData[$i], 'amount' => $amountData[$i]];
             array_push($result, $object);
         }
         return $result;
