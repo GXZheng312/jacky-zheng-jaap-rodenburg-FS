@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
             $table->longText('opmerking')->nullable();
             $table->unsignedBigInteger('bijgerecht')->nullable();
             $table->unsignedBigInteger('aanbieding')->nullable();
-            $table->dateTime('afaahaaltijdstip');
+            $table->dateTime('afhaaltijdstip');
             $table->foreign('gerecht_id')->references('id')->on('gerecht');
             $table->foreign('bijgerecht')->references('id')->on('gerecht');
             $table->foreign('aanbieding')->references('id')->on('aanbieding');
