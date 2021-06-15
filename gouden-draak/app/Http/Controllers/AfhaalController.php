@@ -24,7 +24,8 @@ class AfhaalController extends Controller
                 'gerecht_id' => $gerecht['gerecht'],
                 'aantal' => $gerecht['amount'],
                 'datum' => Carbon::now()->toDateString(),
-                'afhaaltijdstip' => $request->get('afhaaltime')
+                'afhaaltijdstip' => $request->get('afhaaltime'),
+                'opmerking' => $request->get('notes')
             ]);
             array_push($orders, $order);
         }

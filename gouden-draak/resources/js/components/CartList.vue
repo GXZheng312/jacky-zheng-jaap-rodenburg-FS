@@ -28,7 +28,9 @@
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
         </div>
-        <input type="submit" class="btn btn-primary form-control" value="Bestellen">
+        <label for="notes" class="form-label">Opmerkingen</label>
+        <textarea  id="notes" class="form-control" name="notes"></textarea>
+        <input type="submit" class="btn btn-primary form-control mt-3" value="Bestellen">
     </form>
 </template>
 
