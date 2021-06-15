@@ -9,10 +9,10 @@
 
 // default layout css
 @import 'customer';
+@import 'cashier';
+@import 'default';
 
 // other css
-@import 'cashier';
 @import 'pages/home';
 @import 'pages/login';
 @import 'pages/menu';
-

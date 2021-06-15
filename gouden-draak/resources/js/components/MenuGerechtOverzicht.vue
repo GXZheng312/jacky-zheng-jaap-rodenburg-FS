@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-3 mb-5 overflow-auto">
+    <div class="mt-3 mb-5 overflow-auto max-vh-75">
         <div v-for="soortGerecht in soortenGerecht" :key="soortGerecht.id">
-            <h3 class="text-center border-top mt-3 mb-2">{{soortGerecht.soort}}</h3>
-            <div class="d-flex flex-wrap">
+            <h2 class="text-center border-top mt-3 mb-2">{{soortGerecht.soort}}</h2>
+            <div class="d-flex flex-wrap justify-content-evenly">
                 <menu-gerecht v-for="gerecht in soortGerecht.gerechten" v-bind:key="gerecht.id" :gerecht="gerecht"
                     :description="gerecht"/>
             </div>
