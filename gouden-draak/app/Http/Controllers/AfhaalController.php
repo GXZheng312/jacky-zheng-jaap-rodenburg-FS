@@ -28,7 +28,8 @@ class AfhaalController extends Controller
             ]);
             array_push($orders, $order);
         }
-        return QrCode::size(300)->errorCorrection('H')->generate(json_encode(['orders' => $orders, 'name' => $request->get('name')]));
+        $qrcode =  QrCode::size(300)->errorCorrection('H')->generate(json_encode(['orders' => $orders, 'name' => $request->get('name')]));
+        return view('app.cashier.orderconfirm')->with('qrCode',$qrcode );
     }
 
     function groupGerechtAmount($request)

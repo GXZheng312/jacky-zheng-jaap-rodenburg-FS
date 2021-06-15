@@ -20,11 +20,11 @@
         <input type="hidden" name="_token" :value="csrf">
         <div class="row mb-3 mt-3">
             <div class="col-sm">
-                <label for="afhaaltime" class="form-label">Afhaal tijd:</label>
+                <label for="afhaaltime" class="form-label">Afhaal tijd: *</label>
                 <input type="datetime-local" id="afhaaltime" name="afhaaltime" class="form-control" required>
             </div>
             <div class="col-sm">
-                <label for="name" class="form-label">Naam</label>
+                <label for="name" class="form-label">Naam: *</label>
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
         </div>
