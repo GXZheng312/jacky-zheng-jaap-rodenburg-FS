@@ -12,7 +12,7 @@ class AfhaalController extends Controller
 {
     public function index()
     {
-        return view('app.cashier.index');
+        return view('app.afhalen.index');
     }
 
     public function submit(AfhaalRequest $request)
@@ -29,7 +29,7 @@ class AfhaalController extends Controller
             array_push($orders, $order);
         }
         $qrcode =  QrCode::size(300)->errorCorrection('H')->generate(json_encode(['orders' => $orders, 'name' => $request->get('name')]));
-        return view('app.cashier.orderconfirm')->with('qrCode',$qrcode );
+        return view('app.afhalen.orderconfirm')->with('qrCode',$qrcode );
     }
 
     function groupGerechtAmount($request)

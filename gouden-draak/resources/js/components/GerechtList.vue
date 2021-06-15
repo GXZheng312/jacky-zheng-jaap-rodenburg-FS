@@ -1,5 +1,5 @@
 <template>
-        <table class="table">
+        <table class="table scroll max-h-96">
             <thead>
             <tr>
                 <th scope="col">Nummer</th>

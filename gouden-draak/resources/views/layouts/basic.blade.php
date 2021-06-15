@@ -34,12 +34,13 @@
             <div class="nav-menu-chinese">
                 <div class="nav-title">
                     <span>Chinees Indische Specialiteiten</span>
-                    <span>De Gouden Draak</span>     
+                    <span>De Gouden Draak</span>
                 </div>
                 <nav>
 					<ul>
 						<li> <a href="{{ route('main.index')}}">Home</a> </li>
 						<li> <a href="{{ route('main.menu')}}">Menu kaart</a> </li>
+                        <li> <a href="{{ route('afhaal.index')}}">Afhalen</a> </li>
 						<li> <a href="{{ route('main.news')}}">Nieuws</a> </li>
 						<li> <a href="{{ route('main.contact')}}">Contact</a> </li>
 					</ul>

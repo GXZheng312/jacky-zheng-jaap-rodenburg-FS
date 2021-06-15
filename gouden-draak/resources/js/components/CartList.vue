@@ -1,6 +1,6 @@
 <template>
     <form action="./afhalen" method="post">
-        <table class="table">
+        <table class="table vertical-scrollable">
             <thead>
             <tr>
                 <th scope="col">Nummer</th>

@@ -1,4 +1,4 @@
-@extends('layouts.kassa')
+@extends('layouts.basic')
 @section('content')
     <div class="container">
         <div class="row">
