@@ -1,3 +1,23 @@
 .max-vh-75{
     max-height: 75vh;
 }
+
+.table-card-body{
+    table {
+        margin: 0 auto;
+    }
+
+    tr td:nth-child(1) {
+        width: 40%;
+        text-align: right;
+    }
+
+    tr td:nth-child(2) {
+        width: 20%;
+    }
+
+    tr td:nth-child(3) {
+        width: 40%;
+        text-align: left;
+    }
+}

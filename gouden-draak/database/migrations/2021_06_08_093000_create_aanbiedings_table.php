@@ -16,8 +16,9 @@ class CreateAanbiedingsTable extends Migration
         Schema::create('aanbieding', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('gerecht_id');
-            $table->dateTime('start_datum');
-            $table->dateTime('eind_datum')->nullable();
+            $table->string('titel');
+            $table->date('start_datum');
+            $table->date('eind_datum')->nullable();
             $table->decimal('nieuwe_prijs', 10, 2);
             $table->longText('aanpassing');
             $table->foreign('gerecht_id')->references('id')->on('gerecht');

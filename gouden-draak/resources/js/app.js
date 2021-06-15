@@ -37,6 +37,7 @@ Vue.component('cart-list', require('./components/CartList').default);
 Vue.component('cart-item', require('./components/CartItem').default);
 Vue.component('menu-gerecht', require('./components/MenuGerecht.vue').default);
 Vue.component('menu-gerecht-overzicht', require('./components/MenuGerechtOverzicht.vue').default);
+Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vue').default);
 
 
 //view

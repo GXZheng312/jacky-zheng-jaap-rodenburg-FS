@@ -9,25 +9,7 @@
     <div class="ad-section">
         <h3><strong><u>Speciale Studentenaanbieding</u><strong></h3>
 
-        <div class="ad-card"> 
-            <div class="title">
-                Chinese Rijsttafel (2 personen)
-            </div>
-            <div class="body">
-                
-                Maak een keuze uit 3 van onderstaande keuzegerechten: <br/>
-                
-                Koe Loe Yuk		Foe Yong Hai <br/>
-                Tjap Tjoy		Garnalen met Gebakken Knoflook <br/>
-                Babi Pangang		Kipfilet in Zwarte Bonen saus <br/>
-
-                Met witte rijst. (Nasi of bami voor meerprijs mogelijk.) <br/>
-               
-            </div>
-            <div class="price">
-                Prijs: €21,00
-            </div>
-        </div>
+        <speciaal-aanbieding/>
     </div>
 </div>
 @endsection

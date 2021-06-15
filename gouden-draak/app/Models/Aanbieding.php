@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int $id_gerecht
+ * @property string $titel
  * @property string $start_datum
  * @property string|null $eind_datum
  * @property float $nieuwe_prijs
@@ -21,7 +22,7 @@ class Aanbieding extends Model
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
   protected $table = 'aanbieding';
-  protected $fillable = ['id_gerecht', 'start_datum', 'eind_datum', 'nieuwe_prijs', 'aanpassing'];
+  protected $fillable = ['gerecht_id', 'titel', 'start_datum', 'eind_datum', 'nieuwe_prijs', 'aanpassing'];
 
   public function gerecht()
   {
