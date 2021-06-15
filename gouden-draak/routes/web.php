@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AfhaalController;
 use App\Http\Controllers\CashRegisterController;
 use App\Http\Controllers\GerechtController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,8 @@ Route::name('main.')->group(function () {
     Route::get('/menu', function () { return view('app.main.menu'); })->name('menu');
     Route::get('/contact', function () { return view('app.main.contact'); })->name('contact');
 });
-  
-  
+
+
 //Cash Register
 Route::name('cashregister.')->prefix('/kassa')->middleware('auth')->group(function () {
     Route::get('/', [CashRegisterController::class, 'index'])->name('index');
@@ -30,5 +31,8 @@ Route::name('cashregister.')->prefix('/kassa')->middleware('auth')->group(functi
     Route::resource('gerecht', GerechtController::class); //automatically assign actions to that controller
 
 });
+
+Route::get('/afhalen', [AfhaalController::class, 'index'])->name('afhaal.index');
+Route::post('/afhalen', [AfhaalController::class, 'submit'])->name('afhaal.submit');
 
 require __DIR__.'/auth.php';
