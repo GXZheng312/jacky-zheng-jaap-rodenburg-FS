@@ -1,5 +1,5 @@
 <template>
-        <table class="table">
+        <table class="table scroll max-h-96">
             <thead>
             <tr>
                 <th scope="col">Nummer</th>
@@ -24,6 +24,9 @@ export default {
         console.log('Component mounted.');
         const response = await axios.get('/api/gerechten');
         if (response.status === 200) {
+            for(let i = 0; i < response.data.length; i++){
+                response.data[i].amount = 1;
+            }
             this.gerechten = response.data;
         }
     },
