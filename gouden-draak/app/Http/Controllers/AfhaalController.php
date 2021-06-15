@@ -24,11 +24,11 @@ class AfhaalController extends Controller
                 'gerecht_id' => $gerecht['gerecht'],
                 'aantal' =>  $gerecht['amount'],
                 'datum' => Carbon::now()->toDateString(),
-                'afhaaltijdstip' => Carbon::now()->addHour()->toDateString()
+                'afhaaltijdstip' =>  $request->get('afhaaltime')
             ]);
             array_push($orders, $order);
         }
-        return QrCode::size(300)->generate(json_encode($orders));
+        return QrCode::size(300)->errorCorrection('H')->generate(json_encode($orders));
     }
 
     function groupGerechtAmount($request)

@@ -24,7 +24,11 @@ class AfhaalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'gerecht' => 'array|required',
+            'gerecht.*' => 'integer|required',
+            'amount' => 'array|required',
+            'amount.*' => 'integer|required',
+            'afhaaltime' => 'required|date'
         ];
     }
 }

@@ -18,6 +18,8 @@
             </tbody>
         </table>
         <input type="hidden" name="_token" :value="csrf">
+        <label for="afhaaltime">Afhaal tijd:</label>
+        <input type="datetime-local" id="afhaaltime" name="afhaaltime">
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
 </template>
