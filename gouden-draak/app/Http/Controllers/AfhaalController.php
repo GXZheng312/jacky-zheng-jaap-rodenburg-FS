@@ -18,18 +18,17 @@ class AfhaalController extends Controller
     public function submit(AfhaalRequest $request)
     {
         $gerechten = $this->groupGerechtAmount($request);
-        $orderId = [];
+        $orders = [];
         foreach($gerechten as $gerecht){
-            $id = Order::create([
+            $order = Order::create([
                 'gerecht_id' => $gerecht['gerecht'],
                 'aantal' =>  $gerecht['amount'],
                 'datum' => Carbon::now()->toDateString(),
                 'afhaaltijdstip' => Carbon::now()->addHour()->toDateString()
             ]);
-            array_push($orderId, $id);
+            array_push($orders, $order);
         }
-        $result = ['gerechten' =>  $gerechten, 'orderid' => $orderId];
-        return QrCode::size(300)->generate(json_encode($result));
+        return QrCode::size(300)->generate(json_encode($orders));
     }
 
     function groupGerechtAmount($request)
