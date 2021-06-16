@@ -1,16 +1,6 @@
 <?php
 
 namespace App\Models;
-/**
- * App\Models\Order
- *
- * @property int $id
- * @property string $datum
- * @property string $opmerking
- * @property string $afhaaltijdstip
- * @property string $naam
- * @mixin Eloquent
- */
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,8 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /**
- * @method static create(array $array)
+ * App\Models\Order
+ *
+ * @property int $id
+ * @property string $datum
+ * @property string $afhaaltijdstip
+ * @property string $naam
+ * @mixin Eloquent
  */
+
 class Order extends Model
 {
   use HasFactory;

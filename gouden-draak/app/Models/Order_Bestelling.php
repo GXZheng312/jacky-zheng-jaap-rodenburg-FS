@@ -8,8 +8,8 @@ namespace App\Models;
  * @property int $gerecht_id
  * @property int $aantal
  * @property int $aanbieding
+ * @property string $opmerking
  * @mixin Eloquent
- * @method static create(array $array)
  */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
