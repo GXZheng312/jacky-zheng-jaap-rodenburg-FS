@@ -16,7 +16,6 @@
 export default {
     async mounted() {
         const response = await axios.get('/api/soort-gerechten');
-        
         if (response.status === 200) this.soortenGerecht = response.data; 
     },
     data() {
@@ -25,7 +24,9 @@ export default {
         }
     },
     methods: {
-        addGerecht: function (gerecht) {
+        addGerecht: function (gerechtRef) {
+            let gerecht = JSON.parse(JSON.stringify(gerechtRef));
+            gerecht.amount = 1;
             this.$root.$emit('addGerecht', gerecht);
         }
     }

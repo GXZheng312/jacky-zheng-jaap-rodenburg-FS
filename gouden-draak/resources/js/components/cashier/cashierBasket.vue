@@ -28,24 +28,21 @@
 
 <script>
 export default {
-    mounted() {
-        this.$root.$on('addGerecht', gerechtRef => {
-            let gerecht = JSON.parse(JSON.stringify(gerechtRef));
+    async mounted() {
+        const response = await axios.get('/api/bijgerechten');
+        if (response.status === 200) this.bijgerechten = response.data;
+
+        this.$root.$on('addGerecht', gerecht => {     
             let index = this.gerechten.findIndex(data => data.id === gerecht.id);
-            
-            if(index < 0) { 
-                gerecht.amount = 1;
-                this.gerechten.push(gerecht);
-            } else {
-                this.gerechten[index].amount++;
-            }
-            
+
+            if(index < 0) this.gerechten.push(gerecht);
+            if(index >= 0) this.gerechten[index].amount++;
         });
     },
     computed: {
         formattedTotal: function(){
-            this.totalAmount = this.gerechten.reduce((sum, { prijs, amount }) => sum + prijs * amount, 0)
-            return parseFloat(this.totalAmount).toFixed(2);
+            let totalAmount = this.gerechten.reduce((sum, { prijs, amount }) => sum + prijs * amount, 0)
+            return parseFloat(totalAmount).toFixed(2);
         }
     },
     methods: {
@@ -77,7 +74,7 @@ export default {
     data() {
         return {
             gerechten: [],
-            totalAmount: 0
+            bijgerechten: []
         }
     },
 }
