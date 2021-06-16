@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         clicked: function(){
-            this.$root.$emit('heartEvent', { checked: this.checked, id: this.id})
+            this.$root.$emit(consts.events.heartEvent, { checked: this.checked, id: this.id})
         }
     }
 }

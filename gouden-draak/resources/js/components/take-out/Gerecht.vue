@@ -17,7 +17,7 @@ export default {
     methods: {
         addGerecht: function () {
             console.log('Addgerecht', this.gerecht)
-            this.$root.$emit('addGerecht', this.gerecht);
+            this.$root.$emit(consts.events.addGerecht, this.gerecht);
         }
     }
 }

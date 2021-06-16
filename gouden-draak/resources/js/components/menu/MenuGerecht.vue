@@ -33,7 +33,7 @@
 export default {
     props: ['gerecht'],
     mounted() {
-        this.$root.$on('heartEvent', obj => {
+        this.$root.$on(consts.events.heartEvent, obj => {
             if (this.gerecht.id !== obj.id) return;
             this.updateFavouriteState(obj.id, obj.checked);
         });
@@ -41,7 +41,7 @@ export default {
     methods: {
         updateFavouriteState(id, state) {
             console.log(id, 'clicked', this.gerecht.id);
-            let cookie = getCookieValue('favoriteGerechten') ?? [];
+            let cookie = getCookieValue(consts.cookies.favoriteGerechten) ?? [];
             try {
                 cookie = JSON.parse(cookie);
             } catch (e) {
@@ -54,12 +54,12 @@ export default {
             if (state) {
                 cookie.push(id);
             }
-            setCookie('favoriteGerechten', JSON.stringify(cookie), 7);
+            setCookie(consts.cookies.favoriteGerechten, JSON.stringify(cookie), 7);
         }
     },
     data() {
         return {
-            favorite: (getCookieValue('favoriteGerechten') ?? []).indexOf(this.gerecht.id) !== -1
+            favorite: (getCookieValue(consts.cookies.favoriteGerechten) ?? []).indexOf(this.gerecht.id) !== -1
         }
     }
 }

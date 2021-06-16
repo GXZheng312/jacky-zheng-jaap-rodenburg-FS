@@ -57,6 +57,20 @@ const app = new Vue({
 });
 
 /**
+ * Consts
+ */
+window.consts = {
+    cookies: {
+        favoriteGerechten: "favoriteGerechten"
+    },
+    events: {
+        addGerecht: "addGerecht",
+        removeGerecht: "removeGerecht",
+        heartEvent: "heartEvent"
+    }
+}
+
+/**
  * Global Functions
  */
 window.getCookieValue = function(name) {
