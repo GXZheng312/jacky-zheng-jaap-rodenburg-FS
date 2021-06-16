@@ -17,15 +17,12 @@
 <script>
 export default {
     props: ['gerecht'],
-    mounted() {
-        console.log('Component mounted.');
-    },
     methods: {
         deleteGerecht: function () {
             if (this.gerecht.amount > 1) {
                 this.gerecht.amount--;
             } else {
-                this.$root.$emit('removeGerecht', this.gerecht);
+                this.$root.$emit(consts.events.removeGerecht, this.gerecht);
             }
         }
     },

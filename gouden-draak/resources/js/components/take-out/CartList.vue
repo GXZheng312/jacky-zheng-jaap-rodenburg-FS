@@ -37,8 +37,7 @@
 <script>
 export default {
     async mounted() {
-        console.log('Component mounted.');
-        this.$root.$on('addGerecht', obj => {
+        this.$root.$on(consts.events.addGerecht, obj => {
             let currentGerecht = this.gerechten.filter(data => data.id === obj.id)[0];
             if (currentGerecht) {
                 currentGerecht.amount++;
@@ -47,8 +46,8 @@ export default {
                 this.gerechten.push(obj);
             }
         });
-        this.$root.$on('removeGerecht', obj => {
-            this.gerechten = this.gerechten.filter(data => data.id != obj.id);
+        this.$root.$on(consts.events.removeGerecht, obj => {
+            this.gerechten = this.gerechten.filter(data => data.id !== obj.id);
         });
     },
     data() {

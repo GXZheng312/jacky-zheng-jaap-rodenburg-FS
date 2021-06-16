@@ -39,6 +39,7 @@ Vue.component('menu-gerecht', require('./components/menu/MenuGerecht.vue').defau
 Vue.component('menu-gerecht-overzicht', require('./components/menu/MenuGerechtOverzicht.vue').default);
 Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vue').default);
 Vue.component('heart', require('./components/emoji/Heart.vue').default);
+Vue.component('order-confirm', require('./components/take-out/OrderConfirm').default);
 
 
 //view
@@ -54,3 +55,38 @@ Vue.component('view-kassa', require('./view/kassa.vue').default);
 const app = new Vue({
   el: '#vue-app',
 });
+
+/**
+ * Consts
+ */
+window.consts = {
+    cookies: {
+        favoriteGerechten: "favoriteGerechten"
+    },
+    events: {
+        addGerecht: "addGerecht",
+        removeGerecht: "removeGerecht",
+        heartEvent: "heartEvent"
+    }
+}
+
+/**
+ * Global Functions
+ */
+window.getCookieValue = function(name) {
+    let result = document.cookie.match("(^|[^;]+)\\s*" + name + "\\s*=\\s*([^;]+)")
+    return result ? decodeURIComponent(result.pop()) : undefined
+}
+
+window.setCookie = function(name, value, daysToLive) {
+    // Encode value in order to escape semicolons, commas, and whitespace
+    let cookie = name + "=" + encodeURIComponent(value);
+
+    if(typeof daysToLive === "number") {
+        /* Sets the max-age attribute so that the cookie expires
+        after the specified number of days */
+        cookie += "; max-age=" + (daysToLive*24*60*60);
+
+        document.cookie = cookie;
+    }
+}

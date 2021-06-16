@@ -8,12 +8,12 @@
 <div class="chinese-container basic-font">
 	<div class="ad-banner">
 		<div class="dragon-logo">
-			<img src="images/dragon-small.png" alt="Golden Dragon">
+			<img src="/images/dragon-small.png" alt="Golden Dragon">
 			<span>De Gouden Draak</span>
-			<img src="images/dragon-small-flipped.png" alt="Golden Dragon">
+			<img src="/images/dragon-small-flipped.png" alt="Golden Dragon">
 		</div>
 		<div class="scroll-banner">
-			<a href="paginas/aanbiedingen.html">
+			<a href="/paginas/aanbiedingen.html">
 				<div class="marquee">
 					<p>
 						Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
@@ -22,15 +22,15 @@
 			</a>
 		</div>
 		<div class="dragon-logo">
-			<img src="images/dragon-small.png" alt="Golden Dragon">
+			<img src="/images/dragon-small.png" alt="Golden Dragon">
 			<span>De Gouden Draak</span>
-			<img src="images/dragon-small-flipped.png" alt="Golden Dragon">
+			<img src="/images/dragon-small-flipped.png" alt="Golden Dragon">
 		</div>
 	</div>
 
 	<div class="chinese-border">
         <div class="nav-container">
-			<img src="images/dragon-small.png" alt="Golden Dragon">
+			<img src="/images/dragon-small.png" alt="Golden Dragon">
             <div class="nav-menu-chinese">
                 <div class="nav-title">
                     <span>Chinees Indische Specialiteiten</span>
@@ -46,7 +46,7 @@
 					</ul>
 				</nav>
             </div>
-			<img src="images/dragon-small-flipped.png" alt="Golden Dragon">
+			<img src="/images/dragon-small-flipped.png" alt="Golden Dragon">
 		</div>
 		<div id='vue-app' class="content" >
             @yield('content')

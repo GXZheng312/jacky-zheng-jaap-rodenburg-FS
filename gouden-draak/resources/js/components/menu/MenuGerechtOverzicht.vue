@@ -13,10 +13,9 @@
 <script>
 export default {
     async mounted() {
-        console.log('Component mounted.');
         const response = await axios.get('/api/soort-gerechten');
 
-        if (response.status === 200) this.soortenGerecht = response.data; 
+        if (response.status === 200) this.soortenGerecht = response.data;
     },
     data() {
         return {
