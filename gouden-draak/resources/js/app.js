@@ -31,17 +31,18 @@ Vue.use(IconsPlugin)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 //components
-Vue.component('gerecht', require('./components/Gerecht.vue').default);
-Vue.component('gerecht-list', require('./components/GerechtList.vue').default);
-Vue.component('cart-list', require('./components/CartList').default);
-Vue.component('cart-item', require('./components/CartItem').default);
-Vue.component('menu-gerecht', require('./components/MenuGerecht.vue').default);
-Vue.component('menu-gerecht-overzicht', require('./components/MenuGerechtOverzicht.vue').default);
+Vue.component('gerecht', require('./components/take-out/Gerecht.vue').default);
+Vue.component('gerecht-list', require('./components/take-out/GerechtList.vue').default);
+Vue.component('cart-list', require('./components/take-out/CartList').default);
+Vue.component('cart-item', require('./components/take-out/CartItem').default);
+Vue.component('menu-gerecht', require('./components/menu/MenuGerecht.vue').default);
+Vue.component('menu-gerecht-overzicht', require('./components/menu/MenuGerechtOverzicht.vue').default);
 Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vue').default);
 
 
 //view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
+Vue.component('view-kassa', require('./view/kassa.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
