@@ -42,5 +42,6 @@ Route::name('cashregister.')->prefix('/kassa')->middleware('auth')->group(functi
 
 Route::get('/afhalen', [AfhaalController::class, 'index'])->name('afhaal.index');
 Route::post('/afhalen', [AfhaalController::class, 'submit'])->name('afhaal.submit');
+Route::get('/order/{id}', [AfhaalController::class, 'show'])->name('order.show');
 
 require __DIR__ . '/auth.php';

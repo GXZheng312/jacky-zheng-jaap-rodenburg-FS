@@ -5,19 +5,16 @@ namespace App\Models;
  * App\Models\Order
  *
  * @property int $id
- * @property int $gerecht_id
- * @property int $aantal
  * @property string $datum
- * @property string $soortgerecht
  * @property string $opmerking
- * @property int|null $bijgerecht
- * @property int|null $aanbieding
  * @property string $afhaaltijdstip
+ * @property string $naam
  * @mixin Eloquent
  * @method static create(array $array)
  */
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 /**
  * @method static create(array $array)
@@ -26,13 +23,15 @@ class Order extends Model
 {
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-  protected $fillable = ['gerecht_id', 'aantal', 'datum', 'soortgerecht', 'opmerking', 'bijgerecht', 'aanbieding', 'afhaaltijdstip'];
-  public function bijgerecht()
+  protected $fillable = ['datum', 'opmerking','afhaaltijdstip', 'naam'];
+
+  public function orders()
   {
-    return $this->belongsTo(Gerecht::class);
+    return $this->hasMany(Order_Bestelling::class);
   }
-  public function aanbieding()
-  {
-    return $this->belongsTo(Aanbieding::class);
+
+  public function getQRCode(){
+      $order_bestellingen = $this->orders()->get();
+      return QrCode::size(300)->errorCorrection('H')->generate(json_encode(['order_bestellingen' => $order_bestellingen, 'order' => $this]));
   }
 }

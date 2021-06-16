@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->dateTime('datum');
             $table->longText('opmerking')->nullable();
             $table->dateTime('afhaaltijdstip');
+            $table->string('naam');
         });
     }
 

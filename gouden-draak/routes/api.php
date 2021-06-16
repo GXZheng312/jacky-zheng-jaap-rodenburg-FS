@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AanbiedingController;
+use App\Http\Controllers\Api\AfhaalController;
 use App\Http\Controllers\Api\GerechtController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) { return
 Route::get('gerechten', [GerechtController::class, 'gerechten']);
 Route::get('soort-gerechten', [GerechtController::class, 'soortGerechten']);
 Route::get('speciaal-aanbieding', [AanbiedingController::class, 'aanbiedingHighlight']);
+Route::get('afhaal-order/details/{id}', [AfhaalController::class, 'orderDetails']);
+Route::get('afhaal-order/qr-code/{id}', [AfhaalController::class, 'qrCode']);

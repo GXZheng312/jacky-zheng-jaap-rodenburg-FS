@@ -23,7 +23,8 @@ class AfhaalController extends Controller
         $order = Order::create([
             'datum' => Carbon::now()->toDateString(),
             'afhaaltijdstip' => $request->get('afhaaltime'),
-            'opmerking' => $request->get('notes')
+            'opmerking' => $request->get('notes'),
+            'naam' => $request->get('name')
         ]);
         foreach ($gerechten as $gerecht) {
             $order_bestelling = Order_Bestelling::create([
@@ -33,8 +34,12 @@ class AfhaalController extends Controller
             ]);
             array_push($order_bestellingen, $order_bestelling);
         }
-        $qrcode = QrCode::size(300)->errorCorrection('H')->generate(json_encode(['order_bestellingen' => $order_bestellingen, 'order' => $order, 'name' => $request->get('name')]));
-        return view('app.afhalen.orderconfirm')->with('qrCode', $qrcode);
+        return redirect(route('order.show'), $order->id);
+
+    }
+
+    public function show($id){
+        return view('app.afhalen.orderconfirm')->with('id', $id);
     }
 
     function groupGerechtAmount($request)
