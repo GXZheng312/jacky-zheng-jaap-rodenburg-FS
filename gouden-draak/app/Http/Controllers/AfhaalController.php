@@ -34,7 +34,7 @@ class AfhaalController extends Controller
             ]);
             array_push($order_bestellingen, $order_bestelling);
         }
-        return redirect(route('order.show'), $order->id);
+        return redirect(route('order.show',  $order->id));
 
     }
 
