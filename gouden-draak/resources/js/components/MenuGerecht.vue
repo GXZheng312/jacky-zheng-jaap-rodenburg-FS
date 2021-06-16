@@ -5,7 +5,7 @@
                 <div class="row">{{ gerecht.menunummer }}{{ gerecht.menu_toevoeging }}. {{ gerecht.naam }}
                 </div>
                 <div class="row">
-                    <heart></heart>
+                    <heart :id="gerecht.id"></heart>
                 </div>
             </div>
         </div>
