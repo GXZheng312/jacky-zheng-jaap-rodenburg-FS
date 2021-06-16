@@ -21,7 +21,6 @@
 <script>
 export default {
     async mounted() {
-        console.log('Component mounted.');
         const response = await axios.get('/api/gerechten');
         if (response.status === 200) {
             for(let i = 0; i < response.data.length; i++){

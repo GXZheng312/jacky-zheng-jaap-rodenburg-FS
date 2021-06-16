@@ -33,7 +33,16 @@
 export default {
     props: ['gerecht'],
     mounted() {
-        console.log('Component mounted.')
+        this.$root.$on('heartEvent', obj => {
+            if(this.gerecht.id !== obj.id) return;
+            this.updateFavouriteState(obj.id, obj.checked);
+        });
+    },
+    methods: {
+        updateFavouriteState(id, state){
+            console.log(obj.id, 'clicked', this.gerecht.id);
+            let cookie = 
+        }
     }
 }
 </script>

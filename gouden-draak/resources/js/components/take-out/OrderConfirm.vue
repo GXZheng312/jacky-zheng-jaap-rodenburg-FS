@@ -20,7 +20,6 @@
 export default {
     props: ['id'],
     async mounted() {
-        console.log('Component mounted.');
         try {
             let response = await axios.get(`/api/afhaal-order/details/${this.id}`);
             if (response.status === 200) {

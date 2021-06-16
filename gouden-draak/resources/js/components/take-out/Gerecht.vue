@@ -14,9 +14,6 @@
 <script>
 export default {
     props: ['gerecht'],
-    mounted() {
-        console.log('Component mounted.')
-    },
     methods: {
         addGerecht: function () {
             console.log('Addgerecht', this.gerecht)

@@ -37,7 +37,6 @@
 <script>
 export default {
     async mounted() {
-        console.log('Component mounted.');
         this.$root.$on('addGerecht', obj => {
             let currentGerecht = this.gerechten.filter(data => data.id === obj.id)[0];
             if (currentGerecht) {

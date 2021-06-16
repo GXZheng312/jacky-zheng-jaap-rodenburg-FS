@@ -17,9 +17,6 @@
 <script>
 export default {
     props: ['gerecht'],
-    mounted() {
-        console.log('Component mounted.');
-    },
     methods: {
         deleteGerecht: function () {
             if (this.gerecht.amount > 1) {
