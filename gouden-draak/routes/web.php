@@ -35,6 +35,8 @@ Route::name('main.')->group(function () {
 
 //Cash Register
 Route::name('cashregister.')->prefix('/kassa')->middleware('auth')->group(function () {
+    Route::get('/', function() { return view('app.cashier.index'); })->name('index');
+
     Route::resource('gerecht', GerechtController::class); //automatically assign actions to that controller
 });
 
