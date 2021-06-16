@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AfhaalRequest;
 use App\Models\Order;
+use App\Models\Order_Bestelling;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -18,19 +19,22 @@ class AfhaalController extends Controller
     public function submit(AfhaalRequest $request)
     {
         $gerechten = $this->groupGerechtAmount($request);
-        $orders = [];
+        $order_bestellingen = [];
+        $order = Order::create([
+            'datum' => Carbon::now()->toDateString(),
+            'afhaaltijdstip' => $request->get('afhaaltime'),
+            'opmerking' => $request->get('notes')
+        ]);
         foreach ($gerechten as $gerecht) {
-            $order = Order::create([
+            $order_bestelling = Order_Bestelling::create([
+                'order_id' => $order->id,
                 'gerecht_id' => $gerecht['gerecht'],
-                'aantal' => $gerecht['amount'],
-                'datum' => Carbon::now()->toDateString(),
-                'afhaaltijdstip' => $request->get('afhaaltime'),
-                'opmerking' => $request->get('notes')
+                'aantal' => $gerecht['amount']
             ]);
-            array_push($orders, $order);
+            array_push($order_bestellingen, $order_bestelling);
         }
-        $qrcode =  QrCode::size(300)->errorCorrection('H')->generate(json_encode(['orders' => $orders, 'name' => $request->get('name')]));
-        return view('app.afhalen.orderconfirm')->with('qrCode',$qrcode );
+        $qrcode = QrCode::size(300)->errorCorrection('H')->generate(json_encode(['order_bestellingen' => $order_bestellingen, 'order' => $order, 'name' => $request->get('name')]));
+        return view('app.afhalen.orderconfirm')->with('qrCode', $qrcode);
     }
 
     function groupGerechtAmount($request)

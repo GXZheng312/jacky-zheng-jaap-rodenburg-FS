@@ -15,16 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('gerecht_id');
-            $table->integer('aantal');
             $table->dateTime('datum');
             $table->longText('opmerking')->nullable();
-            $table->unsignedBigInteger('bijgerecht')->nullable();
-            $table->unsignedBigInteger('aanbieding')->nullable();
             $table->dateTime('afhaaltijdstip');
-            $table->foreign('gerecht_id')->references('id')->on('gerecht');
-            $table->foreign('bijgerecht')->references('id')->on('gerecht');
-            $table->foreign('aanbieding')->references('id')->on('aanbieding');
         });
     }
 
