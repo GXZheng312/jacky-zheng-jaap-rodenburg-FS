@@ -13,6 +13,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 require('./bootstrap');
 require('alpinejs');
+require('./components/emoji/Heart');
 
 window.Vue = require('vue').default;
 window.Axios = require('axios').default;
