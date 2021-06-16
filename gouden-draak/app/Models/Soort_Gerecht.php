@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $soort
  * @property string $soort_toevoeging
  * @mixin Eloquent
- * @method static create(string[] $array)
  */
 class Soort_Gerecht extends Model
 {

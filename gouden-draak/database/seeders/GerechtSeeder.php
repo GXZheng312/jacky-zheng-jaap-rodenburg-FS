@@ -47,9 +47,44 @@ class GerechtSeeder extends Seeder
 				'naam' => $gerecht[3],
 				'prijs' => $gerecht[4],
 				'soortgerecht_id' => $soortgerecht->id,
-				'beschrijving' => $gerecht[6],
-				'pittigheid_id' => 1
+				'beschrijving' => $gerecht[6]
 			]);
+
+			$this->bijgerechtList();
 		}
+	}
+
+	private function bijgerechtList(){
+		$soortGerecht = Soort_Gerecht::create(['soort' => 'BIJGERECHT']);
+
+		Gerecht::create([
+			'naam' => 'witte rijst',
+			'prijs' => 1.00,
+			'soortgerecht_id' => $soortGerecht->id
+		]);
+
+		Gerecht::create([
+			'naam' => 'nasi goreng',
+			'prijs' => 1.00,
+			'soortgerecht_id' => $soortGerecht->id
+		]);
+
+		Gerecht::create([
+			'naam' => 'bami goreng',
+			'prijs' => 1.00,
+			'soortgerecht_id' => $soortGerecht->id
+		]);
+
+		Gerecht::create([
+			'naam' => 'mihoen goreng',
+			'prijs' => 1.00,
+			'soortgerecht_id' => $soortGerecht->id
+		]);
+
+		Gerecht::create([
+			'naam' => 'chinese bami',
+			'prijs' => 1.00,
+			'soortgerecht_id' => $soortGerecht->id
+		]);
 	}
 }

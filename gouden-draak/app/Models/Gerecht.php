@@ -25,7 +25,7 @@ class Gerecht extends Model
   protected $table = 'gerecht';
 
   protected $fillable = ['menunummer', 'menu_toevoeging', 'prijs', 'soortgerecht_id', 'beschrijving', 'pittigheid_id'];
-
+  
   public function soort_gerecht()
   {
     return $this->belongsTo(Soort_Gerecht::class, 'soortgerecht_id', 'id');

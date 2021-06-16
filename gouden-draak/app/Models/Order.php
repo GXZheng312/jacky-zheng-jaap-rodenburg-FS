@@ -23,11 +23,6 @@ class Order extends Model
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
   protected $fillable = ['datum','afhaaltijdstip', 'naam'];
 
-  public function __construct() 
-  {
-      $this->attributes['datum'] = Carbon::now()->toDateString();
-  }
-
   public function orders()
   {
     return $this->hasMany(Order_Bestelling::class);

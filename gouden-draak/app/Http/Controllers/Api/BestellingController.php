@@ -13,11 +13,11 @@ class BestellingController extends Controller
 	{
 		$request->validated();
 
-		$order = Order::create([	
-            'opmerking' => $request->get('notes'),
-            'naam' => $request->get('name')
-        ]);
+		//$order = Order::create();
 		
+		foreach($request->input('gerechten') as $gerechtItem){
+
+		}
 
 
 		return $request->input('gerechten');	

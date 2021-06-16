@@ -18,7 +18,10 @@ class CreateOrderBestellingsTable extends Migration
             $table->unsignedBigInteger('gerecht_id');
             $table->integer('aantal');
             $table->longText('opmerking')->nullable();
+            $table->unsignedBigInteger('bijgerecht')->nullable();
             $table->unsignedBigInteger('aanbieding')->nullable();
+            
+            $table->foreign('gerecht_id')->references('id')->on('bijgerecht');
             $table->foreign('aanbieding')->references('id')->on('aanbieding');
             $table->foreign('gerecht_id')->references('id')->on('gerecht');
             $table->foreign('order_id')->references('id')->on('orders');
