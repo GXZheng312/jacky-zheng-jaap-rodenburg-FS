@@ -11,13 +11,11 @@ class GerechtController extends Controller
 {
   public function gerechten(): array
   {
-    $allItems = Gerecht::with('allergenes')->with('pittigheid')->with('soort_gerecht')->get()->jsonSerialize();
-    return $allItems;
+    return Gerecht::with('allergenes')->with('pittigheid')->with('soort_gerecht')->get()->jsonSerialize();;
   }
 
   public function soortGerechten(): array
   {
-    $allItems = Soort_Gerecht::with('gerechten', 'gerechten.pittigheid', 'gerechten.allergenes')->get()->jsonSerialize();
-    return $allItems;
+    return Soort_Gerecht::with('gerechten', 'gerechten.pittigheid', 'gerechten.allergenes')->get()->jsonSerialize();
   }
 }

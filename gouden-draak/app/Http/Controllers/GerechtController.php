@@ -109,11 +109,19 @@ class GerechtController extends Controller
         $request->validated();
 
         $gerecht->menunummer = $request->input('menunummer') ? $request->input('menunummer') : Gerecht::max('menunummer') + 1;
-        if($request->input('menu_toevoeging')) $gerecht->menu_toevoeging = $request->input('menu_toevoeging');
+
+        if($request->input('menu_toevoeging')) {
+            $gerecht->menu_toevoeging = $request->input('menu_toevoeging');
+        }
+
         $gerecht->naam = $request->input('naam');
         $gerecht->prijs = $request->input('prijs');
         $gerecht->soortgerecht_id = $request->input('soortgerecht_id');
-        if($request->input('beschrijving')) $gerecht->beschrijving = $request->input('beschrijving');
+
+        if($request->input('beschrijving')) { 
+            $gerecht->beschrijving = $request->input('beschrijving');
+        } 
+        
         $gerecht->pittigheid_id = $request->input('pittigheid_id');
        
         if(!$update) $gerecht->save();

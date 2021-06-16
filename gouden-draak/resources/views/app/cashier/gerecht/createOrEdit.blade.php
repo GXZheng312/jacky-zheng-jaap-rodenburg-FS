@@ -52,7 +52,6 @@
         {{ Form::select('pittigheid_id', $pittigheids,  old('pittigheid_id'), ['class' => 'form-control']) }}
     </div>
 
-
     <div class="col-12">
         {{ Form::label('Allergenes', 'Selecteer allergenes', ['class' => 'form-label']) }}
         @foreach ($allergenes as $allergene)
