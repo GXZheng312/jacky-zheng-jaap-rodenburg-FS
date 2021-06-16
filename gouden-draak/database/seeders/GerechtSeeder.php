@@ -50,8 +50,9 @@ class GerechtSeeder extends Seeder
 				'beschrijving' => $gerecht[6]
 			]);
 
-			$this->bijgerechtList();
 		}
+		
+		$this->bijgerechtList();
 	}
 
 	private function bijgerechtList(){
