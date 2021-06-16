@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class GerechtController extends Controller
 {
-  public function gerechten(): array
+  public function gerechten()
   {
     return Gerecht::with('allergenes')->with('pittigheid')->with('soort_gerecht')->get()->jsonSerialize();;
   }

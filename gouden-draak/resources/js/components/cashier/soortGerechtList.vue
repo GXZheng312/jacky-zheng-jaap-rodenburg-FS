@@ -26,7 +26,7 @@ export default {
     methods: {
         addGerecht: function (gerechtRef) {
             let gerecht = JSON.parse(JSON.stringify(gerechtRef));
-            gerecht.amount = 1;
+            gerecht.aantal = 1;
             this.$root.$emit('addGerecht', gerecht);
         }
     }

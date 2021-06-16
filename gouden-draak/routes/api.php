@@ -26,4 +26,4 @@ Route::get('bijgerechten', [GerechtController::class, 'bijgerechten']);
 Route::get('speciaal-aanbieding', [AanbiedingController::class, 'aanbiedingHighlight']);
 Route::get('afhaal-order/details/{id}', [AfhaalController::class, 'orderDetails']);
 Route::get('afhaal-order/qr-code/{id}', [AfhaalController::class, 'qrCode']);
-Route::post('bestellings', [BestellingController::class, 'store']);
+Route::post('bestelling', [BestellingController::class, 'store']);

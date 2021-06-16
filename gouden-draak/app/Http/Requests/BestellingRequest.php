@@ -25,9 +25,9 @@ class BestellingRequest extends FormRequest
     {
         return [
             'gerechten' => 'array|required',
-            'gerechten.id' => 'integer|required',
-            'gerechten.aantal' => 'integer|required',
-            
+            'gerechten.*.id' => 'integer|required',
+            'gerechten.*.aantal' => 'integer|required',
+
         ];
     }
 }
