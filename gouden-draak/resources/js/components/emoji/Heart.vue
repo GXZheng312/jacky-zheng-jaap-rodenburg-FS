@@ -24,37 +24,3 @@ export default {
 }
 </script>
 
-<style>
-fieldset > input[type="checkbox"]:checked + label svg {
-    fill: #E2264D;
-    animation: animateHeart .3s linear forwards .25s
-}
-
-svg {
-    transform-origin: center;
-    animation: animateHeartOut .3s linear forwards
-}
-
-@keyframes animateHeartOut {
-    0% {
-        transform: scale(1.4)
-    }
-
-    100% {
-        transform: scale(1)
-    }
-}
-@keyframes animateHeart {
-    0% {
-        transform: scale(0.2)
-    }
-
-    40% {
-        transform: scale(1.2)
-    }
-
-    100% {
-        transform: scale(1)
-    }
-}
-</style>

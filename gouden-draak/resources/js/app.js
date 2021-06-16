@@ -38,7 +38,7 @@ Vue.component('cart-item', require('./components/take-out/CartItem').default);
 Vue.component('menu-gerecht', require('./components/menu/MenuGerecht.vue').default);
 Vue.component('menu-gerecht-overzicht', require('./components/menu/MenuGerechtOverzicht.vue').default);
 Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vue').default);
-Vue.component('heart', require('./components/Heart.vue').default);
+Vue.component('heart', require('./components/emoji/Heart.vue').default);
 
 
 //view
