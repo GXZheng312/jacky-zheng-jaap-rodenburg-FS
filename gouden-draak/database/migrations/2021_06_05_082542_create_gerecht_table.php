@@ -15,7 +15,7 @@ class CreateGerechtTable extends Migration
     {
         Schema::create('gerecht', function (Blueprint $table) {
             $table->id();
-            $table->integer('menunummer');
+            $table->integer('menunummer')->nullable();
             $table->tinyText('menu_toevoeging')->nullable();
             $table->mediumText('naam');
             $table->decimal('prijs', 10, 2);

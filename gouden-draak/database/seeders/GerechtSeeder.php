@@ -28,18 +28,18 @@ class GerechtSeeder extends Seeder
 				$soortgerecht = Soort_Gerecht::create(['soort' => $gerecht[5]]);
 			}
 
-			if(!$gerecht[1]) {
-				if(!$previouslyIncremented) {
-					$previouslyIncremented = true;
-					$addExtra++;
-				}
-				$gerecht[1] = Gerecht::max('menunummer') + $addExtra;
-			} 
+			// if(!$gerecht[1]) {
+			// 	if(!$previouslyIncremented) {
+			// 		$previouslyIncremented = true;
+			// 		$addExtra++;
+			// 	}
+			// 	$gerecht[1] = Gerecht::max('menunummer') + $addExtra;
+			// } 
 
-			if($gerecht[1]) {
-				$gerecht[1] += $addExtra;
-				$previouslyIncremented = false;
-			}
+			// if($gerecht[1]) {
+			// 	$gerecht[1] += $addExtra;
+			// 	$previouslyIncremented = false;
+			// }
 
 			Gerecht::create([
 				'menunummer' => $gerecht[1],
