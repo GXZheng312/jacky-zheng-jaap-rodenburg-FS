@@ -20,7 +20,7 @@ class Order_Bestelling extends Model
     public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
     protected $table = 'order_bestelling';
 
-    protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'aanbieding'];
+    protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'aanbieding', 'opmerking'];
 
     public function order()
     {

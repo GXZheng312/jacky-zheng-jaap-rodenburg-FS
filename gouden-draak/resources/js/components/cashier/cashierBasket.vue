@@ -61,9 +61,14 @@ export default {
             this.gerechten = [];
         },
         sendGerechten(){
-            axios.post('/api/bestellings', this.gerechten)
-            .then((response)=>{
-                console.log(response)
+            axios.post('/api/bestellings', {
+                gerechten: this.gerechten
+            }).then((response)=>{
+                if(response.status = 200){
+                    this.removeAll()
+                }
+                console.log(response);
+                
             }).catch((error)=>{
                 console.log(error.response.data)
             })

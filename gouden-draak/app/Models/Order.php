@@ -10,8 +10,9 @@ namespace App\Models;
  * @property string $afhaaltijdstip
  * @property string $naam
  * @mixin Eloquent
- * @method static create(array $array)
  */
+
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -23,7 +24,12 @@ class Order extends Model
 {
   use HasFactory;
   public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-  protected $fillable = ['datum', 'opmerking','afhaaltijdstip', 'naam'];
+  protected $fillable = ['datum','afhaaltijdstip', 'naam'];
+
+  public function __construct() 
+  {
+      $this->attributes['datum'] = Carbon::now()->toDateString();
+  }
 
   public function orders()
   {
