@@ -5,7 +5,7 @@
                 <div class="row">{{ gerecht.menunummer }}{{ gerecht.menu_toevoeging }}. {{ gerecht.naam }}
                 </div>
                 <div class="row">
-                    <heart :id="gerecht.id"></heart>
+                    <heart :id="gerecht.id" :checked="favourite"></heart>
                 </div>
             </div>
         </div>
@@ -34,14 +34,32 @@ export default {
     props: ['gerecht'],
     mounted() {
         this.$root.$on('heartEvent', obj => {
-            if(this.gerecht.id !== obj.id) return;
+            if (this.gerecht.id !== obj.id) return;
             this.updateFavouriteState(obj.id, obj.checked);
         });
     },
     methods: {
-        updateFavouriteState(id, state){
-            console.log(obj.id, 'clicked', this.gerecht.id);
-            let cookie = 
+        updateFavouriteState(id, state) {
+            console.log(id, 'clicked', this.gerecht.id);
+            let cookie = getCookieValue('favoriteGerechten') ?? [];
+            try {
+                cookie = JSON.parse(cookie);
+            } catch (e) {
+                cookie = [];
+            }
+
+            cookie = cookie.filter(function (value) {
+                return value !== id;
+            });
+            if (state) {
+                cookie.push(id);
+            }
+            setCookie('favoriteGerechten', JSON.stringify(cookie), 7);
+        }
+    },
+    data() {
+        return {
+            favourite: (getCookieValue('favoriteGerechten') ?? []).indexOf(this.gerecht.id) !== -1
         }
     }
 }

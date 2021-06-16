@@ -1,7 +1,7 @@
 <template>
 
     <fieldset>
-        <input type="checkbox" class="checkbox" :id="id" v-model="checked"
+        <input type="checkbox" class="checkbox" :id="id" v-model="checked" :checked="checked"
                @change="clicked()"
                style="visibility: hidden; width: 0; height: 0"/>
 
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    props: ['id'],
+    props: ['id', 'checked'],
     data() {
         return {
             checked: false
