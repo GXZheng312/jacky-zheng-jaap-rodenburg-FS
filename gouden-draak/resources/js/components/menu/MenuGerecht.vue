@@ -5,7 +5,7 @@
                 <div class="row">{{ gerecht.menunummer }}{{ gerecht.menu_toevoeging }}. {{ gerecht.naam }}
                 </div>
                 <div class="row">
-                    <heart :id="gerecht.id" :checked="favourite"></heart>
+                    <heart :id="gerecht.id" :checked="favorite"></heart>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@ export default {
     },
     data() {
         return {
-            favourite: (getCookieValue('favoriteGerechten') ?? []).indexOf(this.gerecht.id) !== -1
+            favorite: (getCookieValue('favoriteGerechten') ?? []).indexOf(this.gerecht.id) !== -1
         }
     }
 }
