@@ -9,9 +9,21 @@
 }
 
 .gerecht-list-container {
-    max-height: 75vh;
+    height: 75vh;
 }
 
 .cashier-basket-container {
-    max-height: 50vh;
+    min-height: 60vh;
+    max-height: 60vh;
+}
+
+.subtotal {
+    height: 10vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subtotal-text {
+    font-weight: bold;
+    font-size: 150%;
 }

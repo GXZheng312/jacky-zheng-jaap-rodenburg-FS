@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         addGerecht: function (gerecht) {
-            this.$set(gerecht, 'amount', 1);
             this.$root.$emit('addGerecht', gerecht);
         }
     }
