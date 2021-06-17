@@ -25,7 +25,8 @@ export default {
     return {
       soortenGerecht: [],
       filterInput: '',
-      filteredData: []
+      filteredData: [],
+      excludedData: [],
     };
   },
   async mounted() {
@@ -39,30 +40,34 @@ export default {
       if (this.filterInput === null || this.filterInput === '') {
         return this.soortenGerecht;
       } else {
-        this.filterBySoort();
-        this.filterByMenunummer();
-        this.filterByNaam();
+        this.filteredData = JSON.parse(JSON.stringify(this.soortenGerecht));
+        this.filterGerechten();
+        this.cleanFiltered();
 
         return this.filteredData;
       }
     },
   },
   methods: {
-    addGerecht: function (gerechtRef) {
-      let gerecht = JSON.parse(JSON.stringify(gerechtRef));
-      gerecht.aantal = 1;
-      this.$root.$emit('addGerecht', gerecht);
+    filterGerechten: function () {
+      for (let x = 0; this.filteredData.length > x; x++) {
+        if (!this.filteredData[x].soort.includes(this.filterInput.toLowerCase())) {
+          this.filteredData[x].gerechten = this.filteredData[x].gerechten.filter(data =>
+            (data.menunummer + '' + data.menu_toevoeging).includes(this.filterInput) ||
+            data.naam.includes(this.filterInput)
+          );
+        }
+      }
     },
-    filterBySoort: function() {
-      this.filteredData = this.soortenGerecht.filter(data => data.soort.includes(this.filterInput.toLowerCase()));
-    },
-    filterByMenunummer: function() {
+    cleanFiltered: function () {
+      let i = this.filteredData.length;
+      while (i--) {
+        if(this.filteredData[i].gerechten.length < 1) {
+          this.filteredData.splice(i, 1);
+        }
+      }
+    }
 
-    
-    },
-    filterByNaam: function() {
-      return;
-    },
   },
 };
 </script>
