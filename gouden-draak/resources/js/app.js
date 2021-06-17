@@ -68,6 +68,9 @@ window.consts = {
         addGerecht: "addGerecht",
         removeGerecht: "removeGerecht",
         heartEvent: "heartEvent"
+    },
+    others: {
+        bijgerechtSelectorText: "bijgerecht"
     }
 }
 

@@ -1,18 +1,20 @@
 <?php
 
 namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * App\Models\Order_Bestelling
  *
  * @property int $order_id
  * @property int $gerecht_id
  * @property int $aantal
- * @property int $aanbieding
+ * @property int $aanbieding_id
  * @property string $opmerking
  * @mixin Eloquent
  */
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Order_Bestelling extends Model
 {
@@ -20,7 +22,7 @@ class Order_Bestelling extends Model
     public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
     protected $table = 'order_bestelling';
 
-    protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'bijgerecht', 'aanbieding', 'opmerking'];
+    protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'aanbieding_id', 'opmerking'];
 
     public function order()
     {
@@ -36,6 +38,6 @@ class Order_Bestelling extends Model
     }
     public function bijgerecht()
     {
-        return $this->belongsTo(Aanbieding::class);
+        return $this->hasMany(Bijgerecht_bestelling::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BestellingRequest;
+use App\Models\Bijgerecht_bestelling;
 use App\Models\Gerecht;
 use App\Models\Order;
 use App\Models\Order_Bestelling;
@@ -22,17 +23,31 @@ class BestellingController extends Controller
 				'aantal' => $gerechtItem['aantal']
 			]);
 			
-			if(is_int($gerechtItem['bijgerecht']) && gerecht::find($gerechtItem['bijgerecht'])?->soort_gerecht->soort != 'BIJGERECHT'){
-				$bestellingRegel->bijgerecht = $gerechtItem['bijgerecht'];
-			}
-			
-			if($gerechtItem['opmerking'] != null){
-				$bestellingRegel->opmerking = $gerechtItem['opmerking'];
-			}
+			$this->addBijgerechten($order, $gerechtItem['bijgerechten']);
+
+			$this->addOpmerking($bestellingRegel, $gerechtItem['opmerking']);
 
 			$bestellingRegel->save();
 		}
 
 		return $request->input('gerechten');	
+	}
+
+	private function addBijgerechten($order, $bijgerechten){
+		foreach($bijgerechten as $bijgerecht){
+			if(is_int($bijgerecht['id']) && gerecht::find($bijgerecht['id'])->soort != 'BIJGERECHT'){
+				Bijgerecht_bestelling::create([
+					'order_bestelling_id' => $order->id,
+					'bijgerecht_id' => $bijgerecht['id'],
+					'aantal' => $bijgerecht['aantal'],
+				]);
+			}
+		}
+	}
+
+	private function addOpmerking($bestellingRegel, $opmerking){
+		if($opmerking != null){
+			$bestellingRegel->opmerking = $opmerking;
+		}
 	}
 }
