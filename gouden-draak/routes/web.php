@@ -3,6 +3,7 @@
 use App\Http\Controllers\AfhaalController;
 use App\Http\Controllers\CashRegisterController;
 use App\Http\Controllers\GerechtController;
+use App\Http\Controllers\VerkoopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,8 +44,9 @@ Route::name('cashregister.')
     Route::get('/', function () {
       return view('app.cashier.index');
     })->name('index');
+    route::get('/verkoop', [VerkoopController::class, 'index'])->name('verkoop');
 
-    Route::resource('gerecht', GerechtController::class); //automatically assign actions to that controller
+    Route::resource('gerecht', GerechtController::class); //automatically assign actions to the controller
   });
 
 Route::get('/afhalen', [AfhaalController::class, 'index'])->name('afhaal.index');
