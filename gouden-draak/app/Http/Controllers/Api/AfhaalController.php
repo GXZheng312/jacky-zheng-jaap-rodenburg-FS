@@ -10,13 +10,20 @@ use Illuminate\Http\Request;
 
 class AfhaalController extends Controller
 {
-    public function orderDetails($orderId): array
-    {
-        return Order::with('orders')->with('orders.gerecht')->with('orders.aanbieding')->where('id', $orderId)->get()->first()->jsonSerialize();
-    }
-    public function qrCode($orderId)
-    {
-        return Order::where('id', $orderId)->first()->getQRCode();
-    }
-
+  public function orderDetails($orderId): array
+  {
+    return Order::with('orders')
+      ->with('orders.gerecht')
+      ->with('orders.aanbieding')
+      ->where('id', $orderId)
+      ->get()
+      ->first()
+      ->jsonSerialize();
+  }
+  public function qrCode($orderId)
+  {
+    return Order::where('id', $orderId)
+      ->first()
+      ->getQRCode();
+  }
 }

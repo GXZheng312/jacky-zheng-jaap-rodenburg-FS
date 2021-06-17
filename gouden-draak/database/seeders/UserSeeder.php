@@ -10,37 +10,37 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        Medewerker::create([
-            'voornaam' => 'test',
-            'achternaam' => 'test'
-        ]);
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    Medewerker::create([
+      'voornaam' => 'test',
+      'achternaam' => 'test',
+    ]);
 
-        Medewerker::create([
-            'voornaam' => 'jacky',
-            'achternaam' => 'zheng' 
-        ]);
+    Medewerker::create([
+      'voornaam' => 'jacky',
+      'achternaam' => 'zheng',
+    ]);
 
-        Medewerker::create([
-            'voornaam' => 'jaap',
-            'achternaam' => 'rodenburg' 
-        ]);
+    Medewerker::create([
+      'voornaam' => 'jaap',
+      'achternaam' => 'rodenburg',
+    ]);
 
-        Rol::create([
-            'rol' => 'werknemer'
-        ]);
+    Rol::create([
+      'rol' => 'werknemer',
+    ]);
 
-        User::create([
-            'email' => 'test@test.nl',
-            'password' =>  Hash::make('test'),
-            'medewerker_id' => 1,
-            'rol' => 'werknemer'
-        ]);
-    }
+    User::create([
+      'email' => 'test@test.nl',
+      'password' => Hash::make('test'),
+      'medewerker_id' => 1,
+      'rol' => 'werknemer',
+    ]);
+  }
 }

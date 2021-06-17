@@ -18,26 +18,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order_Bestelling extends Model
 {
-    use HasFactory;
-    public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
-    protected $table = 'order_bestelling';
+  use HasFactory;
+  public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
+  protected $table = 'order_bestelling';
 
-    protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'aanbieding_id', 'opmerking'];
+  protected $fillable = ['order_id', 'gerecht_id', 'aantal', 'aanbieding_id', 'opmerking'];
 
-    public function order()
-    {
-        return $this->belongsTo(Order::class);
-    }
-    public function gerecht()
-    {
-        return $this->belongsTo(Gerecht::class);
-    }
-    public function aanbieding()
-    {
-        return $this->belongsTo(Aanbieding::class);
-    }
-    public function bijgerecht()
-    {
-        return $this->hasMany(Bijgerecht_bestelling::class);
-    }
+  public function order()
+  {
+    return $this->belongsTo(Order::class);
+  }
+  public function gerecht()
+  {
+    return $this->belongsTo(Gerecht::class);
+  }
+  public function aanbieding()
+  {
+    return $this->belongsTo(Aanbieding::class);
+  }
+  public function bijgerecht()
+  {
+    return $this->hasMany(Bijgerecht_bestelling::class);
+  }
 }

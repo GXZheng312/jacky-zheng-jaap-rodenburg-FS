@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) { return $request->user(); });
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+  return $request->user();
+});
 Route::get('gerechten', [GerechtController::class, 'gerechten']);
 Route::get('soort-gerechten', [GerechtController::class, 'soortGerechten']);
 Route::get('bijgerechten', [GerechtController::class, 'bijgerechten']);

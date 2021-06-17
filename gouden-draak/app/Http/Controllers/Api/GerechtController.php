@@ -11,18 +11,26 @@ class GerechtController extends Controller
 {
   public function gerechten()
   {
-    return Gerecht::with('allergenes')->with('pittigheid')->with('soort_gerecht')->get()->jsonSerialize();;
+    return Gerecht::with('allergenes')
+      ->with('pittigheid')
+      ->with('soort_gerecht')
+      ->get()
+      ->jsonSerialize();
   }
 
   public function soortGerechten(): array
   {
-    return Soort_Gerecht::with('gerechten', 'gerechten.pittigheid', 'gerechten.allergenes')->get()->jsonSerialize();
+    return Soort_Gerecht::with('gerechten', 'gerechten.pittigheid', 'gerechten.allergenes')
+      ->get()
+      ->jsonSerialize();
   }
 
   public function bijgerechten(): array
   {
     $bijgerecht = Soort_Gerecht::where('soort', 'BIJGERECHT')->first();
 
-    return Gerecht::where('soortgerecht_id', $bijgerecht->id)->get()->jsonSerialize();
+    return Gerecht::where('soortgerecht_id', $bijgerecht->id)
+      ->get()
+      ->jsonSerialize();
   }
 }

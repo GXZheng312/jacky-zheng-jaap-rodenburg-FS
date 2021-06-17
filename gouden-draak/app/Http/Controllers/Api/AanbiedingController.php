@@ -13,5 +13,4 @@ class AanbiedingController extends Controller
     $allItems = Aanbieding::first()->jsonSerialize();
     return $allItems;
   }
-
 }

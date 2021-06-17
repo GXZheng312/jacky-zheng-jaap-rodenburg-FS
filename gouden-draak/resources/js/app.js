@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Vue from 'vue';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 //import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -18,8 +18,8 @@ require('./components/emoji/Heart');
 window.Vue = require('vue').default;
 window.Axios = require('axios').default;
 
-Vue.use(BootstrapVue)
-Vue.use(IconsPlugin)
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -42,7 +42,6 @@ Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vu
 Vue.component('heart', require('./components/emoji/Heart.vue').default);
 Vue.component('order-confirm', require('./components/take-out/OrderConfirm').default);
 
-
 //view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
 Vue.component('view-kassa', require('./view/kassa.vue').default);
@@ -61,36 +60,36 @@ const app = new Vue({
  * Consts
  */
 window.consts = {
-    cookies: {
-        favoriteGerechten: "favoriteGerechten"
-    },
-    events: {
-        addGerecht: "addGerecht",
-        removeGerecht: "removeGerecht",
-        heartEvent: "heartEvent"
-    },
-    others: {
-        bijgerechtSelectorText: "bijgerecht"
-    }
-}
+  cookies: {
+    favoriteGerechten: 'favoriteGerechten',
+  },
+  events: {
+    addGerecht: 'addGerecht',
+    removeGerecht: 'removeGerecht',
+    heartEvent: 'heartEvent',
+  },
+  others: {
+    bijgerechtSelectorText: 'bijgerecht',
+  },
+};
 
 /**
  * Global Functions
  */
-window.getCookieValue = function(name) {
-    let result = document.cookie.match("(^|[^;]+)\\s*" + name + "\\s*=\\s*([^;]+)")
-    return result ? decodeURIComponent(result.pop()) : undefined
-}
+window.getCookieValue = function (name) {
+  let result = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
+  return result ? decodeURIComponent(result.pop()) : undefined;
+};
 
-window.setCookie = function(name, value, daysToLive) {
-    // Encode value in order to escape semicolons, commas, and whitespace
-    let cookie = name + "=" + encodeURIComponent(value);
+window.setCookie = function (name, value, daysToLive) {
+  // Encode value in order to escape semicolons, commas, and whitespace
+  let cookie = name + '=' + encodeURIComponent(value);
 
-    if(typeof daysToLive === "number") {
-        /* Sets the max-age attribute so that the cookie expires
+  if (typeof daysToLive === 'number') {
+    /* Sets the max-age attribute so that the cookie expires
         after the specified number of days */
-        cookie += "; max-age=" + (daysToLive*24*60*60);
+    cookie += '; max-age=' + daysToLive * 24 * 60 * 60;
 
-        document.cookie = cookie;
-    }
-}
+    document.cookie = cookie;
+  }
+};
