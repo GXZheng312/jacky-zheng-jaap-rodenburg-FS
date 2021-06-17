@@ -20,6 +20,24 @@ window.Axios = require('axios').default;
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+
+/**
+ * Consts
+ */
+window.consts = {
+  cookies: {
+    favoriteGerechten: 'favoriteGerechten',
+  },
+  events: {
+    addGerecht: 'addGerecht',
+    removeGerecht: 'removeGerecht',
+    heartEvent: 'heartEvent',
+  },
+  others: {
+    bijgerechtSelectorText: 'bijgerecht',
+  },
+};
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41,6 +59,8 @@ Vue.component('menu-gerecht-overzicht', require('./components/menu/MenuGerechtOv
 Vue.component('speciaal-aanbieding', require('./components/SpeciaalAanbieding.vue').default);
 Vue.component('heart', require('./components/emoji/Heart.vue').default);
 Vue.component('order-confirm', require('./components/take-out/OrderConfirm').default);
+Vue.component('cocktail-search', require('./components/cocktail/cocktail-search').default);
+Vue.component('cocktail-card', require('./components/cocktail/cocktail-card').default);
 
 //view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
@@ -55,23 +75,6 @@ Vue.component('view-kassa', require('./view/kassa.vue').default);
 const app = new Vue({
   el: '#vue-app',
 });
-
-/**
- * Consts
- */
-window.consts = {
-  cookies: {
-    favoriteGerechten: 'favoriteGerechten',
-  },
-  events: {
-    addGerecht: 'addGerecht',
-    removeGerecht: 'removeGerecht',
-    heartEvent: 'heartEvent',
-  },
-  others: {
-    bijgerechtSelectorText: 'bijgerecht',
-  },
-};
 
 /**
  * Global Functions
