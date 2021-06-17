@@ -20,6 +20,25 @@ window.Axios = require('axios').default;
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+
+/**
+ * Consts
+ */
+window.consts = {
+    cookies: {
+        favoriteGerechten: 'favoriteGerechten',
+    },
+    events: {
+        addGerecht: 'addGerecht',
+        removeGerecht: 'removeGerecht',
+        heartEvent: 'heartEvent',
+    },
+    others: {
+        bijgerechtSelectorText: 'bijgerecht',
+    },
+};
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -56,22 +75,6 @@ const app = new Vue({
   el: '#vue-app',
 });
 
-/**
- * Consts
- */
-window.consts = {
-  cookies: {
-    favoriteGerechten: 'favoriteGerechten',
-  },
-  events: {
-    addGerecht: 'addGerecht',
-    removeGerecht: 'removeGerecht',
-    heartEvent: 'heartEvent',
-  },
-  others: {
-    bijgerechtSelectorText: 'bijgerecht',
-  },
-};
 
 /**
  * Global Functions
