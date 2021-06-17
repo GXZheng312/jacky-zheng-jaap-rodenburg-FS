@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="gerecht-search-container">
-      <input type="text" class="form-control" placeholder="Zoeken" v-model="filterInput" @change="searchGerecht()" />
+      <input type="text" class="form-control" placeholder="Zoeken" v-model="filterInput" />
     </div>
     <div class="overflow-auto gerecht-list-container border-top border-primary mt-3">
       <div v-for="soortGerecht in filteredSoortenGerechten" :key="soortGerecht.id">
@@ -25,6 +25,7 @@ export default {
     return {
       soortenGerecht: [],
       filterInput: '',
+      filteredData: []
     };
   },
   async mounted() {
@@ -38,13 +39,11 @@ export default {
       if (this.filterInput === null || this.filterInput === '') {
         return this.soortenGerecht;
       } else {
-        let filteredData = null;
+        this.filterBySoort();
+        this.filterByMenunummer();
+        this.filterByNaam();
 
-        this.filterBySoort(filteredData);
-        this.filterByMenunummer(filteredData);
-        this.filterByNaam(filteredData);
-
-        return filteredData;
+        return this.filteredData;
       }
     },
   },
@@ -54,13 +53,14 @@ export default {
       gerecht.aantal = 1;
       this.$root.$emit('addGerecht', gerecht);
     },
-    filterBySoort(data) {
-      return;
+    filterBySoort: function() {
+      this.filteredData = this.soortenGerecht.filter(data => data.soort.includes(this.filterInput.toLowerCase()));
     },
-    filterByMenunummer(data) {
-      return;
+    filterByMenunummer: function() {
+
+    
     },
-    filterByNaam(data) {
+    filterByNaam: function() {
       return;
     },
   },
