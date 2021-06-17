@@ -42,6 +42,7 @@
 						<li> <a href="{{ route('main.menu')}}">Menu kaart</a> </li>
                         <li> <a href="{{ route('afhaal.index')}}">Afhalen</a> </li>
 						<li> <a href="{{ route('main.news')}}">Nieuws</a> </li>
+                        <li> <a href="{{ route('main.cocktail')}}">Cocktails</a> </li>
 						<li> <a href="{{ route('main.contact')}}">Contact</a> </li>
 					</ul>
 				</nav>

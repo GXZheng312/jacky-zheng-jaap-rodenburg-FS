@@ -30,6 +30,9 @@ Route::name('main.')->group(function () {
   Route::get('/contact', function () {
     return view('app.main.contact');
   })->name('contact');
+  Route::get('/cocktail', function () {
+    return view('app.main.cocktail');
+  })->name('cocktail');
 });
 
 //Cash Register
