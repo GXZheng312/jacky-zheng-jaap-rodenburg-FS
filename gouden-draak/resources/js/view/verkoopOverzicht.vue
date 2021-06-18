@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="row m-4">
-      <div class="col-4 border border-primary p-3 mr-4">
+    <div class="row m-4 border border-primary">
+      <div class="col-4 p-3 mr-4 border-end border-primary">
         <div class="row">
           <div class="col-8">
             <div class="mb-3 row">
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <subtotal class="col border border-primary p-3" :bestellingen="bestellingen"/>
+      <subtotal class="col p-3 border-start border-primary" :bestellingen="bestellingen"/>
     </div>
     <overview-table class="border border-primary p-3 m-4" :bestellingen="bestellingen"/>
   </div>
