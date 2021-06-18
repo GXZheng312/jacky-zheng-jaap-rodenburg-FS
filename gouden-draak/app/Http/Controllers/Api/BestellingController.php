@@ -15,9 +15,12 @@ class BestellingController extends Controller
   public function byDates(Request $request)
   {
     $startDatum = $request->input('startDatum');
-    $eindDatum = $request->input('eindDatum');  
-    
-    return Order::whereBetween('datum', [$startDatum, $eindDatum])->get()->jsonSerialize();
+    $eindDatum = $request->input('eindDatum');
+
+    return Order::whereBetween('datum', [$startDatum, $eindDatum])
+      ->with('orders', 'orders.gerecht')
+      ->get()
+      ->jsonSerialize();
   }
 
   public function store(BestellingRequest $request)

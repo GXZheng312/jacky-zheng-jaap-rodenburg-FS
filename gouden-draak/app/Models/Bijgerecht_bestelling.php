@@ -29,7 +29,7 @@ class Bijgerecht_bestelling extends Model
     return $this->belongsTo(Order_Bestelling::class);
   }
 
-  public function bijgerecht()
+  public function gerecht()
   {
     return $this->belongsTo(Gerecht::class);
   }
