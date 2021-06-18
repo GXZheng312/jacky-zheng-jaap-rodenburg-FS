@@ -26,7 +26,6 @@ export default {
 	props: ['bestellingen'],
 	computed: {
 		omzet() {
-			console.log('calculating');
 			return this.calculateTotal().toFixed(this.decimals);
 		},
 		amountBTW() {
