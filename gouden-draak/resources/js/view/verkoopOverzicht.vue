@@ -1,12 +1,30 @@
 <template>
   <div>
-    <div>
-      <div>date form</div>
-      <subtotal />
+    <div class="row m-4">
+      <div class="col-4 border border-primary p-3 mr-4">
+        <div class="row">
+          <div class="col-8">
+            <div class="mb-3 row">
+              <label for="startDatum" class="col-sm-4 col-form-label">Start Datum</label>
+              <div class="col-sm-8">
+                <input type="date" class="form-control" id="startDatum" v-model="startDatum" />
+              </div>
+            </div>
+            <div class="row">
+              <label for="eindDatum" class="col-sm-4 col-form-label">Eind Datum</label>
+              <div class="col-sm-8">
+                <input type="date" class="form-control" id="eindDatum" v-model="eindDatum" />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary btn-lg h-100 rounded" @click="maakOverzicht()">Maak overzicht</button>
+          </div>
+        </div>
+      </div>
+      <subtotal class="col border border-primary p-3" />
     </div>
-    <div>
-      <overview-table />
-    </div>
+    <overview-table class="border border-primary p-3 m-4" />
   </div>
 </template>
 
@@ -15,5 +33,28 @@ import overviewTable from '../components/verkoop/overviewTable.vue';
 import Subtotal from '../components/verkoop/subtotal.vue';
 export default {
   components: { overviewTable, Subtotal },
+  data() {
+    return {
+      bestellingen: [],
+      startDatum: '',
+      eindDatum: '',
+    };
+  },
+  mounted() {},
+  methods: {
+    maakOverzicht() {
+      axios
+        .post('/api/bestellingen/op-datum', {
+          startDatum: this.startDatum,
+          eindDatum: this.eindDatum,
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response.data);
+        });
+    },
+  },
 };
 </script>

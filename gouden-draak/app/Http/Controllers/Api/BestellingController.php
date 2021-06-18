@@ -8,9 +8,18 @@ use App\Models\Bijgerecht_bestelling;
 use App\Models\Gerecht;
 use App\Models\Order;
 use App\Models\Order_Bestelling;
+use Illuminate\Http\Request;
 
 class BestellingController extends Controller
 {
+  public function byDates(Request $request)
+  {
+    $startDatum = $request->input('startDatum');
+    $eindDatum = $request->input('eindDatum');  
+    
+    return Order::whereBetween('datum', [$startDatum, $eindDatum])->get()->jsonSerialize();
+  }
+
   public function store(BestellingRequest $request)
   {
     $request->validated();

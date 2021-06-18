@@ -31,6 +31,7 @@ Route::get('speciaal-aanbieding', [AanbiedingController::class, 'aanbiedingHighl
 Route::get('afhaal-order/details/{id}', [AfhaalController::class, 'orderDetails']);
 Route::get('afhaal-order/qr-code/{id}', [AfhaalController::class, 'qrCode']);
 Route::post('bestelling', [BestellingController::class, 'store']);
+Route::post('bestellingen/op-datum', [BestellingController::class, 'byDates']);
 Route::get('cocktails', [CocktailController::class, 'cocktails']);
 Route::get('cocktails/{name}', [CocktailController::class, 'cocktailSearch']);
 Route::get('pages', [PageController::class, 'pages']);
