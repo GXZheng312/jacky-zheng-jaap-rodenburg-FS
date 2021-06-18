@@ -14,9 +14,11 @@ class CreatePagesTable extends Migration
     public function up()
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->string('route')->primary();
+            $table->id('index');
+            $table->string('route');
             $table->string('displayName');
             $table->string('type');
+            $table->boolean('active')->default(true);
         });
     }
 

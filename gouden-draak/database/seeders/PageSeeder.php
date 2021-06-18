@@ -17,32 +17,38 @@ class PageSeeder extends Seeder
         Page::create([
             'route' => 'main.index',
             'displayName' => 'Home',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '1'
         ]);
         Page::create([
             'route' => 'main.news',
             'displayName' => 'Nieuws',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '2'
         ]);
         Page::create([
             'route' => 'main.menu',
             'displayName' => 'Menu kaart',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '3'
         ]);
         Page::create([
             'route' => 'main.contact',
             'displayName' => 'Contact',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '6'
         ]);
         Page::create([
             'route' => 'main.cocktail',
             'displayName' => 'Cocktails',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '4'
         ]);
         Page::create([
             'route' => 'afhaal.index',
             'displayName' => 'Afhalen',
-            'type' => 'guest'
+            'type' => 'guest',
+            'index' => '5'
         ]);
 
     }

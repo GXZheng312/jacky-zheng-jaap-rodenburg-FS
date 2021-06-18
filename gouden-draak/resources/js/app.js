@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import {BootstrapVue, IconsPlugin} from 'bootstrap-vue';
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 //import 'bootstrap/dist/css/bootstrap.css'
@@ -24,17 +24,20 @@ Vue.use(IconsPlugin);
  * Consts
  */
 window.consts = {
-  cookies: {
-    favoriteGerechten: 'favoriteGerechten',
-  },
-  events: {
-    addGerecht: 'addGerecht',
-    removeGerecht: 'removeGerecht',
-    heartEvent: 'heartEvent',
-  },
-  others: {
-    bijgerechtSelectorText: 'bijgerecht',
-  },
+    cookies: {
+        favoriteGerechten: 'favoriteGerechten',
+    },
+    events: {
+        addGerecht: 'addGerecht',
+        removeGerecht: 'removeGerecht',
+        heartEvent: 'heartEvent',
+    },
+    pages: {
+        guest: 'guest'
+    },
+    others: {
+        bijgerechtSelectorText: 'bijgerecht',
+    },
 };
 
 /**
@@ -60,6 +63,9 @@ Vue.component('heart', require('./components/emoji/Heart.vue').default);
 Vue.component('order-confirm', require('./components/take-out/OrderConfirm').default);
 Vue.component('cocktail-search', require('./components/cocktail/cocktail-search').default);
 Vue.component('cocktail-card', require('./components/cocktail/cocktail-card').default);
+Vue.component('navbar', require('./components/navigation/navbar').default);
+Vue.component('nav-element', require('./components/navigation/nav-element').default);
+
 
 //view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
@@ -73,26 +79,26 @@ Vue.component('verkoop-overzicht', require('./view/verkoopOverzicht.vue').defaul
  */
 
 const app = new Vue({
-  el: '#vue-app',
+    el: '#vue-app',
 });
 
 /**
  * Global Functions
  */
 window.getCookieValue = function (name) {
-  let result = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
-  return result ? decodeURIComponent(result.pop()) : undefined;
+    let result = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return result ? decodeURIComponent(result.pop()) : undefined;
 };
 
 window.setCookie = function (name, value, daysToLive) {
-  // Encode value in order to escape semicolons, commas, and whitespace
-  let cookie = name + '=' + encodeURIComponent(value);
+    // Encode value in order to escape semicolons, commas, and whitespace
+    let cookie = name + '=' + encodeURIComponent(value);
 
-  if (typeof daysToLive === 'number') {
-    /* Sets the max-age attribute so that the cookie expires
-        after the specified number of days */
-    cookie += '; max-age=' + daysToLive * 24 * 60 * 60;
+    if (typeof daysToLive === 'number') {
+        /* Sets the max-age attribute so that the cookie expires
+            after the specified number of days */
+        cookie += '; max-age=' + daysToLive * 24 * 60 * 60;
 
-    document.cookie = cookie;
-  }
+        document.cookie = cookie;
+    }
 };

@@ -9,12 +9,12 @@ class PageController extends Controller
 {
     public function pagesType($type)
     {
-        $pages = Page::where('type', $type)->get();
+        $pages = Page::all()->sortBy('index')->where('type', $type)->where('active', true);
         return $this->convertRoutes($pages);
     }
     public function pages()
     {
-        $pages =  Page::all();
+        $pages =  Page::all()->sortBy('index')->where('active', true);
         return $this->convertRoutes($pages);
     }
 
