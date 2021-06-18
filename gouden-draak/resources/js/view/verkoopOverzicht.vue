@@ -24,7 +24,7 @@
       </div>
       <subtotal class="col p-3 border-start border-primary" :bestellingen="bestellingen"/>
     </div>
-    <overview-table class="border border-primary p-3 m-4" :bestellingen="bestellingen"/>
+    <overview-table class="border overflow-auto verkoop-overzicht-table border-primary p-3 m-4" :bestellingen="bestellingen"/>
   </div>
 </template>
 
