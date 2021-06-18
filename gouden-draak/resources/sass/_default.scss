@@ -2,6 +2,10 @@
     max-height: 75vh;
 }
 
+.vertical-align-middle td{
+    vertical-align: middle;  
+}
+
 .table-card-body{
     table {
         margin: 0 auto;
@@ -22,3 +26,17 @@
     }
     
 }
+
+.btnic {
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: DodgerBlue;
+}
+
+.btn:hover {
+    background-color: RoyalBlue;
+  }

@@ -7,6 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// animations & transitions
+@import 'transition';
+
 // default layout css
 @import 'customer';
 @import 'cashier';
