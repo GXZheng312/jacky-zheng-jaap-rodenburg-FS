@@ -17,6 +17,11 @@
     max-height: 60vh;
 }
 
+.overzicht-subtotal {
+    font-size: large;
+    font-weight: bold;
+}
+
 .subtotal {
     height: 10vh;
     flex-direction: column;
@@ -27,3 +32,4 @@
     font-weight: bold;
     font-size: 150%;
 }
+

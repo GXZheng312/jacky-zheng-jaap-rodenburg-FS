@@ -6,6 +6,6 @@
 
 <script>
 export default {
-
+	props: ['bestellingen'],
 }
 </script>

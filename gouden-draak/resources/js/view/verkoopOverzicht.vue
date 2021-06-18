@@ -22,9 +22,9 @@
           </div>
         </div>
       </div>
-      <subtotal class="col border border-primary p-3" />
+      <subtotal class="col border border-primary p-3" :bestellingen="bestellingen"/>
     </div>
-    <overview-table class="border border-primary p-3 m-4" />
+    <overview-table class="border border-primary p-3 m-4" :bestellingen="bestellingen"/>
   </div>
 </template>
 
@@ -36,20 +36,22 @@ export default {
   data() {
     return {
       bestellingen: [],
-      startDatum: '',
-      eindDatum: '',
+      startDatum: null,
+      eindDatum: null,
     };
   },
   mounted() {},
   methods: {
     maakOverzicht() {
+      if(!this.startDatum && !this.eindDatum && this.startDatum > this.eindDatum) return;
+
       axios
         .post('/api/bestellingen/op-datum', {
           startDatum: this.startDatum,
           eindDatum: this.eindDatum,
         })
         .then(response => {
-          console.log(response);
+          this.bestellingen = response.data;
         })
         .catch(error => {
           console.log(error.response.data);
