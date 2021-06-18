@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin Eloquent
  * @method static create(array $array)
  * @method static make(array $array)
+ * @method static where(string $string, $type)
  */
 class Page extends Model
 {

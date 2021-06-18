@@ -14,32 +14,32 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        Page::make([
-            'route' => 'index',
+        Page::create([
+            'route' => 'main.index',
             'displayName' => 'Home',
             'type' => 'guest'
         ]);
-        Page::make([
-            'route' => 'news',
+        Page::create([
+            'route' => 'main.news',
             'displayName' => 'Nieuws',
             'type' => 'guest'
         ]);
-        Page::make([
-            'route' => 'menu',
+        Page::create([
+            'route' => 'main.menu',
             'displayName' => 'Menu kaart',
             'type' => 'guest'
         ]);
-        Page::make([
-            'route' => 'contact',
+        Page::create([
+            'route' => 'main.contact',
             'displayName' => 'Contact',
             'type' => 'guest'
         ]);
-        Page::make([
-            'route' => 'cocktail',
+        Page::create([
+            'route' => 'main.cocktail',
             'displayName' => 'Cocktails',
             'type' => 'guest'
         ]);
-        Page::make([
+        Page::create([
             'route' => 'afhaal.index',
             'displayName' => 'Afhalen',
             'type' => 'guest'
