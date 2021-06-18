@@ -19,6 +19,7 @@ class BestellingController extends Controller
 
     return Order::whereBetween('datum', [$startDatum, $eindDatum])
       ->with('orders', 'orders.gerecht')
+      ->orderBy('datum', 'DESC')
       ->get()
       ->jsonSerialize();
   }
