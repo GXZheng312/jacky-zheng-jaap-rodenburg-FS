@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
     $this->call(AllergeneGerechtSeeder::class);
     $this->call(AanbiedingSeeder::class);
     $this->call(UserSeeder::class);
+      $this->call(PageSeeder::class);
   }
 }
