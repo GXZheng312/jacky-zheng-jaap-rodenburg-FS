@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container" id="navbarSupportedContent">
       <ul class="navbar-nav fs-4">
-        <li class="nav-item">
+        <li class="nav-item mr-6">
           <a class="nav-link" href="{{route('cashregister.index')}}">Kassa</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mr-6">
           <a class="nav-link" href="{{route('cashregister.gerecht.index')}}">Gerechten</a>
+        </li>
+        <li class="nav-item mr-6">
+          <a class="nav-link" href="{{route('cashregister.verkoop')}}">Verkoop Overzicht</a>
         </li>
       </ul>
 

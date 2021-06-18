@@ -4,7 +4,6 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 //import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css';
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -65,6 +64,7 @@ Vue.component('cocktail-card', require('./components/cocktail/cocktail-card').de
 //view
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
 Vue.component('view-kassa', require('./view/kassa.vue').default);
+Vue.component('verkoop-overzicht', require('./view/verkoopOverzicht.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
