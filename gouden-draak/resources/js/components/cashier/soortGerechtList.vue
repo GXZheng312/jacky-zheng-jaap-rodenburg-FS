@@ -49,6 +49,11 @@ export default {
     },
   },
   methods: {
+    addGerecht: function (gerechtRef) {
+      let gerecht = JSON.parse(JSON.stringify(gerechtRef));
+      gerecht.aantal = 1;
+      this.$root.$emit('addGerecht', gerecht);
+    },
     filterGerechten: function () {
       for (let x = 0; this.filteredData.length > x; x++) {
         if (!this.filteredData[x].soort.includes(this.filterInput.toLowerCase())) {
