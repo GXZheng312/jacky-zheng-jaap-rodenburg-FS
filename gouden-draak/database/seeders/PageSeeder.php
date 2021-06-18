@@ -62,7 +62,7 @@ class PageSeeder extends Seeder
         Page::create([
             'route' => 'logout',
             'displayName' => 'Uitloggen',
-            'type' => 'kassa'
+            'type' => 'logout'
         ]);
 
     }

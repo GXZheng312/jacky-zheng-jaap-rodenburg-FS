@@ -33,7 +33,9 @@ window.consts = {
         heartEvent: 'heartEvent',
     },
     pages: {
-        guest: 'guest'
+        guest: 'guest',
+        kassa: 'kassa',
+        logout: 'logout'
     },
     others: {
         bijgerechtSelectorText: 'bijgerecht',
@@ -64,7 +66,9 @@ Vue.component('order-confirm', require('./components/take-out/OrderConfirm').def
 Vue.component('cocktail-search', require('./components/cocktail/cocktail-search').default);
 Vue.component('cocktail-card', require('./components/cocktail/cocktail-card').default);
 Vue.component('navbar', require('./components/navigation/navbar').default);
+Vue.component('navbar-kassa', require('./components/navigation/navbar-kassa').default);
 Vue.component('nav-element', require('./components/navigation/nav-element').default);
+Vue.component('nav-element-kassa', require('./components/navigation/nav-element-kassa').default);
 
 
 //view

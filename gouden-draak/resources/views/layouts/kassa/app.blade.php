@@ -4,9 +4,6 @@
     @include('layouts.basic.head')
 </head>
 <body class="cashier-web">
-
-    @include('layouts.kassa.navbar')
-
     @yield('body')
 
     @include('layouts.basic.tail')
