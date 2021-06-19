@@ -108,10 +108,12 @@ class GerechtController extends Controller
   {
     $request->validated();
 
-    $gerecht->menunummer = $request->input('menunummer') ? $request->input('menunummer') : Gerecht::max('menunummer') + 1;
+    $gerecht->menunummer = $request->input('menunummer') ? $request->input('menunummer') : Gerecht::max('menunummer');
 
     if ($request->input('menu_toevoeging')) {
       $gerecht->menu_toevoeging = $request->input('menu_toevoeging');
+    } else {
+      $gerecht->menunummer = $request->input('menunummer') ? $request->input('menunummer') : Gerecht::max('menunummer') + 1;
     }
 
     $gerecht->naam = $request->input('naam');
