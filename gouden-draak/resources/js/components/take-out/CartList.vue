@@ -10,9 +10,10 @@
                 <th scope="col">Aantal</th>
                 <th scope="col">Prijs</th>
                 <th scope="col"></th>
+                <th scope="col">Notitie</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="mt-3">
             <cart-item v-for="gerecht in gerechten" v-bind:key="gerecht.id" :gerecht="gerecht"
                        :description="gerecht"></cart-item>
             </tbody>
@@ -28,8 +29,6 @@
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
         </div>
-        <label for="notes" class="form-label">Opmerkingen</label>
-        <textarea  id="notes" class="form-control" name="notes"></textarea>
         <input type="submit" class="btn btn-primary form-control mt-3" value="Bestellen">
     </form>
 </template>

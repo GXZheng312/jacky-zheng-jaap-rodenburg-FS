@@ -11,6 +11,8 @@
         </td>
         <input hidden :value="gerecht.id" name="gerecht[]" required>
         <input hidden :value="gerecht.amount" name="amount[]" required>
+        <input class="w-96 form-control mt-1" name="note[]" type="text" placeholder="Opmerking toevoegen">
+
     </tr>
 </template>
 
