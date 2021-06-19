@@ -27,7 +27,7 @@
                 {{ Form::close() }}
             </div>
             <div class="card-footer text-muted">
-                Gemaakt door Jacky Zheng :)
+                Gemaakt door Jacky && Jaap
             </div>
         </div>
     </div>
