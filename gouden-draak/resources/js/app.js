@@ -75,7 +75,7 @@ Vue.component('nav-element-kassa', require('./components/navigation/nav-element-
 Vue.component('view-web-menu', require('./view/web-menu.vue').default);
 Vue.component('view-kassa', require('./view/kassa.vue').default);
 Vue.component('verkoop-overzicht', require('./view/verkoopOverzicht.vue').default);
-
+Vue.component('view-aanbieding', require('./view/aanbieding.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -34,6 +34,9 @@ Route::name('main.')->group(function () {
   Route::get('/cocktail', function () {
     return view('app.main.cocktail');
   })->name('cocktail');
+  Route::get('/aanbiedingen', function () {
+    return view('app.main.aanbieding');
+  })->name('aanbieding');
 });
 
 //Cash Register

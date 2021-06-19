@@ -36,3 +36,4 @@ Route::get('cocktails', [CocktailController::class, 'cocktails']);
 Route::get('cocktails/{name}', [CocktailController::class, 'cocktailSearch']);
 Route::get('pages', [PageController::class, 'pages']);
 Route::get('pages/{name}', [PageController::class, 'pagesType']);
+Route::get('aanbieding-week', [AanbiedingController::class, 'aanbiedingenOfWeek']);

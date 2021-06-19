@@ -13,7 +13,7 @@
                 <img src="/images/dragon-small-flipped.png" alt="Golden Dragon">
             </div>
             <div class="scroll-banner">
-                <a href="/paginas/aanbiedingen.html">
+                <a href="{{route('main.aanbieding')}}">
                     <div class="marquee">
                         <p>
                             Welkom bij De Gouden Draak. Klik op deze tekst om de aanbiedingen van deze week te zien!
