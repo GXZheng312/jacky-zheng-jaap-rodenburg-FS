@@ -80,7 +80,7 @@ class DailyExcel extends Command
             $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $order->afhaaltijdstip);
             $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $order->naam);
             foreach ($order->orders as $sub_order) {
-                $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $sub_order->gerecht_id);
+                $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $sub_order->gerecht->naam);
                 $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $sub_order->opmerking);
                 $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $sub_order->aanbieding_id);
                 $sheet->setCellValue($this->num2alpha($cellIndex++) . $index, $sub_order->aantal);
@@ -90,7 +90,7 @@ class DailyExcel extends Command
         for ($i = 0; $i < $highestCellIndex / 4; $i++) {
             $localindex = 3;
             $cellIndex = $i * 4;
-            $sheet->setCellValue($this->num2alpha($cellIndex + $localindex++) . '1', 'gerecht_id_' . $i);
+            $sheet->setCellValue($this->num2alpha($cellIndex + $localindex++) . '1', 'gerecht_' . $i);
             $sheet->setCellValue($this->num2alpha($cellIndex + $localindex++) . '1', 'opmerking_' . $i);
             $sheet->setCellValue($this->num2alpha($cellIndex + $localindex++) . '1', 'aanbieding_id_' . $i);
             $sheet->setCellValue($this->num2alpha($cellIndex + $localindex++) . '1', 'aantal_' . $i);
