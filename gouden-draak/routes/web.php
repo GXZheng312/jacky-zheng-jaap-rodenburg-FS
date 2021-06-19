@@ -48,6 +48,7 @@ Route::name('cashregister.')
       return view('app.cashier.index');
     })->name('index');
     route::get('/verkoop', [VerkoopController::class, 'index'])->name('verkoop');
+      route::get('/sales', [VerkoopController::class, 'sales'])->name('sales');
 
     Route::resource('gerecht', GerechtController::class); //automatically assign actions to the controller
   });

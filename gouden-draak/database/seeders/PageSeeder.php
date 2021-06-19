@@ -60,6 +60,11 @@ class PageSeeder extends Seeder
             'type' => 'kassa'
         ]);
         Page::create([
+            'route' => 'cashregister.sales',
+            'displayName' => 'Dagelijkse verkoop lijst',
+            'type' => 'kassa'
+        ]);
+        Page::create([
             'route' => 'logout',
             'displayName' => 'Uitloggen',
             'type' => 'logout'

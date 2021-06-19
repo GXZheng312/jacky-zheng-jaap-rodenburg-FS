@@ -1,6 +1,6 @@
 @extends('layouts.kassa')
 @section('content')
 
-<verkoop-overzicht></verkoop-overzicht>
+    <daily-sales-list> </daily-sales-list>
 
 @endsection
