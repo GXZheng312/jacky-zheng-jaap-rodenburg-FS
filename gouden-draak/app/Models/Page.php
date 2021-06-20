@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Page extends Model
 {
-    use HasFactory;
-    public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
+  use HasFactory;
+  public $timestamps = false; // removes the 'created_at' & 'updated_at' properties
 
-    protected $fillable = ['route', 'displayName', 'type'];
+  protected $fillable = ['route', 'displayName', 'type'];
 }

@@ -13,19 +13,17 @@ class Kernel extends ConsoleKernel
    *
    * @var array
    */
-  protected $commands = [
-    DailyExcel::class,
-  ];
+  protected $commands = [DailyExcel::class];
 
   /**
    * Define the application's command schedule.
    *
-       * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+   * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
    * @return void
    */
   protected function schedule(Schedule $schedule)
   {
-     $schedule->command('sales:daily')->dailyAt('00:01');
+    $schedule->command('sales:daily')->dailyAt('00:01');
   }
 
   /**

@@ -7,24 +7,30 @@ use App\Models\Page;
 
 class PageController extends Controller
 {
-    public function pagesType($type)
-    {
-        $pages = Page::all()->sortBy('index')->where('active', true)->where('type', '=', $type)->toArray();
-        $pages = array_values($pages);
-        return $this->convertRoutes($pages);
-    }
+  public function pagesType($type)
+  {
+    $pages = Page::all()
+      ->sortBy('index')
+      ->where('active', true)
+      ->where('type', '=', $type)
+      ->toArray();
+    $pages = array_values($pages);
+    return $this->convertRoutes($pages);
+  }
 
-    public function pages()
-    {
-        $pages = Page::all()->sortBy('index')->where('active', true);
-        return $this->convertRoutes($pages);
-    }
+  public function pages()
+  {
+    $pages = Page::all()
+      ->sortBy('index')
+      ->where('active', true);
+    return $this->convertRoutes($pages);
+  }
 
-    private function convertRoutes($pages)
-    {
-        for ($i = 0; $i < count($pages); $i++) {
-            $pages[$i]['route'] = route($pages[$i]['route']);
-        }
-        return $pages;
+  private function convertRoutes($pages)
+  {
+    for ($i = 0; $i < count($pages); $i++) {
+      $pages[$i]['route'] = route($pages[$i]['route']);
     }
+    return $pages;
+  }
 }

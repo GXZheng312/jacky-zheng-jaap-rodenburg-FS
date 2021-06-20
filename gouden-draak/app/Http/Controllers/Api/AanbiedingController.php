@@ -21,8 +21,8 @@ class AanbiedingController extends Controller
     $weekStartDate = $now->startOfWeek();
     $weekEndDate = $now->endOfWeek();
 
-    return Aanbieding::where("start_datum", "<=", $weekStartDate)
-      ->where('eind_datum', ">=", $weekEndDate)
+    return Aanbieding::where('start_datum', '<=', $weekStartDate)
+      ->where('eind_datum', '>=', $weekEndDate)
       ->orWhere('eind_datum', null)
       ->get()
       ->jsonSerialize();
