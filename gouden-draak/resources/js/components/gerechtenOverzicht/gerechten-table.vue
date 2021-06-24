@@ -12,7 +12,8 @@
         <th>Acties</th>
         </thead>
         <tbody>
-        <gerechten-table-item v-for="gerecht in gerechten" v-bind:key="gerecht.id" :gerecht="gerecht"></gerechten-table-item>
+        <gerechten-table-item v-for="gerecht in gerechten" v-bind:key="gerecht.id"
+                              :gerecht="gerecht"></gerechten-table-item>
         </tbody>
     </table>
 

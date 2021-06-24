@@ -11,7 +11,7 @@
 
     <b-table
       id="my-table"
-      :items="gerechten"
+      :items="items"
       :per-page="perPage"
       :current-page="currentPage"
       small
@@ -26,11 +26,19 @@
         perPage: 10,
         currentPage: 1,
         gerechten: [],
+          items: [],
       }
     },
     async mounted() {
         const response = await axios.get('/api/gerechten');
         if (response.status === 200) this.gerechten = response.data;
+        this.gerechten.forEach(gerecht => {
+            this.items.push({
+                id: gerecht.id,
+                naam: gerecht.naam,
+                nummer: ge
+            });
+        })
     },
     computed: {
       rows() {

@@ -21,7 +21,7 @@ class CreateAanbiedingsTable extends Migration
             $table->date('eind_datum')->nullable();
             $table->decimal('nieuwe_prijs', 10, 2);
             $table->longText('aanpassing');
-            $table->foreign('gerecht_id')->references('id')->on('gerecht');
+            $table->foreign('gerecht_id')->references('id')->on('gerecht')->cascadeOnDelete();
         });
     }
 

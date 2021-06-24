@@ -22,8 +22,8 @@ class CreateGerechtTable extends Migration
             $table->unsignedBigInteger('soortgerecht_id');
             $table->unsignedBigInteger('pittigheid_id')->default('1');
             $table->longText('beschrijving')->nullable();
-            $table->foreign('soortgerecht_id')->references('id')->on('soort_gerecht');
-            $table->foreign('pittigheid_id')->references('id')->on('pittigheids');
+            $table->foreign('soortgerecht_id')->references('id')->on('soort_gerecht')->cascadeOnDelete();
+            $table->foreign('pittigheid_id')->references('id')->on('pittigheids')->cascadeOnDelete();
         });
     }
 

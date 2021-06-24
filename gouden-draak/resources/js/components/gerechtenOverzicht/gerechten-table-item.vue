@@ -29,8 +29,6 @@
 <script>
 export default {
     props: ['gerecht'],
-    async mounted() {
-    },
     data() {
         return {
             deleteAction :`/kassa/gerecht/${this.gerecht.id}`,

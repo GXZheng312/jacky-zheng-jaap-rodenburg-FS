@@ -14,6 +14,8 @@ class GerechtController extends Controller
     return Gerecht::with('allergenes')
       ->with('pittigheid')
       ->with('soort_gerecht')
+      ->orderBy('menunummer')
+      ->orderBy('menu_toevoeging')
       ->get()
       ->jsonSerialize();
   }

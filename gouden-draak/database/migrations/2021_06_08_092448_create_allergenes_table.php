@@ -23,7 +23,7 @@ class CreateAllergenesTable extends Migration
             $table->unsignedBigInteger('gerecht_id');
             $table->unsignedBigInteger('allergenes_id');
             $table->foreign('allergenes_id')->references('id')->on('allergenes');
-            $table->foreign('gerecht_id')->references('id')->on('gerecht');
+            $table->foreign('gerecht_id')->references('id')->on('gerecht')->cascadeOnDelete();
 
             $table->primary(['gerecht_id', 'allergenes_id']);
         });
